@@ -35,7 +35,7 @@ database(
 catalystProperties(
     metal = 'Pt',
     facet = '111',
-    coverageDependence=True,
+    coverageDependence=False,
 )
 
 # List of species
@@ -424,5 +424,5 @@ options(
 
 generatedSpeciesConstraints(
     allowed=['input species','reaction libraries'],
-    #maximumSurfaceSites=1,
+    maximumSurfaceSites=1,
 )

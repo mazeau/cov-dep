@@ -35,7 +35,7 @@ database(
 catalystProperties(
     metal = 'Pt',
     facet = '111',
-    coverageDependence=True,
+    coverageDependence=False,
 )
 
 # List of species

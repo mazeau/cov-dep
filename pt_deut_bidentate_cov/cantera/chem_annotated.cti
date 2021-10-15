@@ -977,42 +977,54 @@ surface_reaction('X(1) + X(1) + O2(3) <=> OX(25) + OX(25)', [1.890000e+21, -0.5,
 #  Flux pairs: COX(23), CO2X(22); OX(25), X(1);
 
 # surface1 Reaction 5
-surface_reaction('OX(25) + COX(23) <=> X(1) + CO2X(22)', [3.700000e+21, 0.0, 28.107],
+surface_reaction('OX(25) + COX(23) <=> X(1) + CO2X(22)',
+                 Arrhenius(3.700000e+21, 0.0, 28.107,
+                           coverage=[['COX(23)', 0.0, 0.0, -7.887]]),
                  id='surface1-5')
 #  Reaction index: Chemkin #6; RMG #11
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
 #  Flux pairs: CH2X(26), CH3X(27); HX(21), X(1);
 
 # surface1 Reaction 6
-surface_reaction('HX(21) + CH2X(26) <=> X(1) + CH3X(27)', [3.090000e+22, 0.0, 0.0],
+surface_reaction('HX(21) + CH2X(26) <=> X(1) + CH3X(27)',
+                 Arrhenius(3.090000e+22, 0.0, 0.0,
+                           coverage=[['HX(21)', 0.0, 0.0, -0.669]]),
                  id='surface1-6')
 #  Reaction index: Chemkin #7; RMG #18
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
 #  Flux pairs: CH3X(27), CH4(2); HX(21), X(1); HX(21), X(1);
 
 # surface1 Reaction 7
-surface_reaction('HX(21) + CH3X(27) <=> X(1) + X(1) + CH4(2)', [3.300000e+21, 0.0, 11.95],
+surface_reaction('HX(21) + CH3X(27) <=> X(1) + X(1) + CH4(2)',
+                 Arrhenius(3.300000e+21, 0.0, 11.95,
+                           coverage=[['HX(21)', 0.0, 0.0, -6.692]]),
                  id='surface1-7')
 #  Reaction index: Chemkin #8; RMG #12
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
 #  Flux pairs: CH2X(26), CHX(28); X(1), HX(21);
 
 # surface1 Reaction 8
-surface_reaction('X(1) + CH2X(26) <=> HX(21) + CHX(28)', [7.310000e+22, 0.0, 14.077],
+surface_reaction('X(1) + CH2X(26) <=> HX(21) + CHX(28)',
+                 Arrhenius(7.310000e+22, 0.0, 14.077,
+                           coverage=[['CX(29)', 0.0, 0.0, 11.95]]),
                  id='surface1-8')
 #  Reaction index: Chemkin #9; RMG #8
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
 #  Flux pairs: COX(23), CX(29); X(1), OX(25);
 
 # surface1 Reaction 9
-surface_reaction('X(1) + COX(23) <=> OX(25) + CX(29)', [3.700000e+19, 0.0, 56.525],
+surface_reaction('X(1) + COX(23) <=> OX(25) + CX(29)',
+                 Arrhenius(3.700000e+19, 0.0, 56.525,
+                           coverage=[['COX(23)', 0.0, 0.0, -7.887]]),
                  id='surface1-9')
 #  Reaction index: Chemkin #10; RMG #13
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
 #  Flux pairs: CHX(28), CX(29); X(1), HX(21);
 
 # surface1 Reaction 10
-surface_reaction('X(1) + CHX(28) <=> HX(21) + CX(29)', [3.090000e+22, 0.0, 12.357],
+surface_reaction('X(1) + CHX(28) <=> HX(21) + CX(29)',
+                 Arrhenius(3.090000e+22, 0.0, 12.357,
+                           coverage=[['HX(21)', 0.0, 0.0, -0.669]]),
                  id='surface1-10')
 #  Reaction index: Chemkin #11; RMG #17
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
@@ -1026,21 +1038,27 @@ surface_reaction('H2(6) + CX(29) <=> CH2X(26)', stick(4.000000e-02, 0.0, 7.098),
 #  Flux pairs: CH4(2), CH3X(27); X(1), OHX(31); OX(25), OHX(31);
 
 # surface1 Reaction 12
-surface_reaction('X(1) + OX(25) + CH4(2) <=> OHX(31) + CH3X(27)', [5.000000e+18, 0.7, 10.038],
+surface_reaction('X(1) + OX(25) + CH4(2) <=> OHX(31) + CH3X(27)',
+                 Arrhenius(5.000000e+18, 0.7, 10.038,
+                           coverage=[['OX(25)', 0.0, 0.0, 1.912]]),
                  id='surface1-12')
 #  Reaction index: Chemkin #13; RMG #10
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
 #  Flux pairs: COX(23), CO2X(22); OHX(31), HX(21);
 
 # surface1 Reaction 13
-surface_reaction('OHX(31) + COX(23) <=> HX(21) + CO2X(22)', [1.000000e+19, 0.0, 9.25],
+surface_reaction('OHX(31) + COX(23) <=> HX(21) + CO2X(22)',
+                 Arrhenius(1.000000e+19, 0.0, 9.25,
+                           coverage=[['COX(23)', 0.0, 0.0, -7.17]]),
                  id='surface1-13')
 #  Reaction index: Chemkin #14; RMG #14
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
 #  Flux pairs: OHX(31), OX(25); X(1), HX(21);
 
 # surface1 Reaction 14
-surface_reaction('X(1) + OHX(31) <=> OX(25) + HX(21)', [7.390000e+19, 0.0, 18.475],
+surface_reaction('X(1) + OHX(31) <=> OX(25) + HX(21)',
+                 Arrhenius(7.390000e+19, 0.0, 18.475,
+                           coverage=[['OX(25)', 0.0, 0.0, -17.5]]),
                  id='surface1-14')
 #  Reaction index: Chemkin #15; RMG #4
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
@@ -1061,14 +1079,18 @@ surface_reaction('X(1) + H2O(5) <=> H2OX(32)', stick(7.500000e-01, 0.0, 0.0),
 #  Flux pairs: H2OX(32), OHX(31); X(1), HX(21);
 
 # surface1 Reaction 17
-surface_reaction('X(1) + H2OX(32) <=> HX(21) + OHX(31)', [1.150000e+19, 0.0, 24.235],
+surface_reaction('X(1) + H2OX(32) <=> HX(21) + OHX(31)',
+                 Arrhenius(1.150000e+19, 0.0, 24.235,
+                           coverage=[['OX(25)', 0.0, 0.0, 40.0]]),
                  id='surface1-17')
 #  Reaction index: Chemkin #18; RMG #16
 #  Library reaction: Surface/CPOX_Pt/Deutschmann2006_adjusted
 #  Flux pairs: H2OX(32), OHX(31); OX(25), OHX(31);
 
 # surface1 Reaction 18
-surface_reaction('OX(25) + H2OX(32) <=> OHX(31) + OHX(31)', [1.000000e+20, 0.0, 21.63],
+surface_reaction('OX(25) + H2OX(32) <=> OHX(31) + OHX(31)',
+                 Arrhenius(1.000000e+20, 0.0, 21.63,
+                           coverage=[['OX(25)', 0.0, 0.0, 57.5]]),
                  id='surface1-18')
 #  Reaction index: Chemkin #19; RMG #85
 #  Template reaction: Surface_Adsorption_Single
