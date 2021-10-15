@@ -34,7 +34,8 @@ database(
 # )
 
 catalystProperties(
-    metal = 'Rh111',
+    metal = 'Rh',
+    facet = '111',
     coverageDependence=False,
 )
 

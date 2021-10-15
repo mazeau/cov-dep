@@ -1214,14 +1214,14 @@ surface_reaction('X(1) + CH4X(24) <=> HX(21) + CH3X(27)', [1.540000e+21, 0.087, 
 #  Reaction index: Chemkin #34; RMG #118
 #  Template reaction: Surface_Dissociation
 #  Flux pairs: CHOX(33), COX(23); CHOX(33), HX(21);
-#  Matched reaction 70 Ni_4 + CXHO_1 <=> OCX_3 + HX_5 in Surface_Dissociation/training
+#  Matched reaction 210 Ni_4 + CXHO_1 <=> OCX_3 + HX_5 in Surface_Dissociation/training
 #  This reaction matched rate rule [Root_Ext-1R!H-R_N-Sp-5R!H-1R!H_N-2R->C_N-2HO->O]
 #  family: Surface_Dissociation
-#  metal: Pd
+#  metal: Rh
 #  facet: 111
 
 # surface1 Reaction 34
-surface_reaction('X(1) + CHOX(33) <=> HX(21) + COX(23)', [5.784050e+20, 0.0, 2.856],
+surface_reaction('X(1) + CHOX(33) <=> HX(21) + COX(23)', [5.784050e+20, 0.0, 8.071],
                  id='surface1-34')
 #  Reaction index: Chemkin #35; RMG #564
 #  Template reaction: Surface_Abstraction_Single_vdW
@@ -1554,14 +1554,14 @@ surface_reaction('OX(25) + CH4X(24) <=> HX(21) + CH3OX(60)', [9.565229e+24, -0.1
 #  Reaction index: Chemkin #65; RMG #634
 #  Template reaction: Surface_Dissociation
 #  Flux pairs: CH3OX(60), CH3X(27); CH3OX(60), OX(25);
-#  Matched reaction 63 Ni_4 + CH3OX <=> OX + CH3X in Surface_Dissociation/training
+#  Matched reaction 203 Ni_4 + CH3OX <=> OX + CH3X in Surface_Dissociation/training
 #  This reaction matched rate rule [Root_N-Sp-3Xo#1R!H_2R->C_Sp-3Xo-1R!H_N-1R!H->C]
 #  family: Surface_Dissociation
-#  metal: Pd
+#  metal: Rh
 #  facet: 211
 
 # surface1 Reaction 65
-surface_reaction('X(1) + CH3OX(60) <=> OX(25) + CH3X(27)', [6.272720e+20, 0.0, 41.325],
+surface_reaction('X(1) + CH3OX(60) <=> OX(25) + CH3X(27)', [6.272720e+20, 0.0, 30.025],
                  id='surface1-65')
 #  Reaction index: Chemkin #66; RMG #743
 #  Template reaction: Surface_Adsorption_Dissociative
@@ -1688,14 +1688,14 @@ surface_reaction('CO2X(22) + CHOX(33) <=> COX(23) + CHO2X(138)', [3.628000e+20, 
 #  Reaction index: Chemkin #77; RMG #611
 #  Template reaction: Surface_Dissociation
 #  Flux pairs: CHO2X(138), OHX(31); CHO2X(138), COX(23);
-#  Matched reaction 64 Ni_4 + HOCXO_1 <=> OCX_3 + HOX_5 in Surface_Dissociation/training
-#  This reaction matched rate rule [Root_Ext-1R!H-R_N-Sp-5R!H-1R!H_N-2R->C_2HO->O]
+#  Matched reaction 204 Ni_4 + HOCXO_1 <=> OCX_3 + HOX_5 in Surface_Dissociation/training
+#  This reaction matched rate rule [Root_Ext-1R!H-R_N-Sp-5R!H-1R!H_N-2R->C_2HO->O_facet111]
 #  family: Surface_Dissociation
-#  metal: Pd
+#  metal: Rh
 #  facet: 211
 
 # surface1 Reaction 77
-surface_reaction('X(1) + CHO2X(138) <=> OHX(31) + COX(23)', [1.099520e+21, 0.0, 22.83],
+surface_reaction('X(1) + CHO2X(138) <=> OHX(31) + COX(23)', [1.099520e+21, 0.0, 18.679],
                  id='surface1-77')
 #  Reaction index: Chemkin #78; RMG #614
 #  Template reaction: Surface_Abstraction_vdW
@@ -1722,14 +1722,14 @@ surface_reaction('CX(29) + CH4X(24) <=> HX(21) + C2H3X(241)', [4.147872e+17, 0.9
 #  Reaction index: Chemkin #80; RMG #652
 #  Template reaction: Surface_Dissociation
 #  Flux pairs: C2H3X(241), CH3X(27); C2H3X(241), CX(29);
-#  Matched reaction 90 Ni_4 + C2H3X-2 <=> CX_3 + CH3X in Surface_Dissociation/training
-#  This reaction matched rate rule [Root_Sp-3Xo#1R!H_N-2R->O_N-2CHN->N_2CH->C]
+#  Matched reaction 217 Ni_4 + C2H3X-2 <=> CX_3 + CH3X in Surface_Dissociation/training
+#  This reaction matched rate rule [Root_Sp-3Xo#1R!H_N-2R->O_N-2CHN->N_2CH->C_facet111]
 #  family: Surface_Dissociation
-#  metal: Ni
+#  metal: Rh
 #  facet: 111
 
 # surface1 Reaction 80
-surface_reaction('X(1) + C2H3X(241) <=> CX(29) + CH3X(27)', [1.766520e+21, 0.0, 53.916],
+surface_reaction('X(1) + C2H3X(241) <=> CX(29) + CH3X(27)', [1.766520e+21, 0.0, 60.174],
                  id='surface1-80')
 #  Reaction index: Chemkin #81; RMG #721
 #  Template reaction: Surface_Abstraction
