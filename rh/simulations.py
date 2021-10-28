@@ -633,7 +633,7 @@ def export(rxns_translated, ratio, rtol=rtol, atol=atol):
     atol_str = str(atol)
     atol_str = atol_str.split('-')
 
-    k.to_csv(f'{out_dir}/{rtol_str[-1]}_{atol_str[-1]}_{:.1f}RxnSensitivity.csv'.format(ratio), header=True)
+    k.to_csv({out_dir} + '/' + {rtol_str[-1]}' + '_' + {atol_str[-1]} + '_{:.1f}RxnSensitivity.csv'.format(ratio), header=True)
 
 
 def sensitivity_worker(path_to_cti, data, rtol=rtol, atol=atol):
@@ -687,7 +687,7 @@ if __name__ == "__main__":
     atol_str = str(atol)
     atol_str = atol_str.split('-')
 
-    k.to_csv(f'all-data/{rtol_str[-1]}_{atol_str[-1]}_data.csv', header=True)  # raw data
+    k.to_csv('all-data/' + rtol_str[-1]' + '_' + {atol_str[-1]} + '_data.csv', header=True)  # raw data
 
     # save gas profiles
     out_dir = 'gas_profiles'
@@ -700,7 +700,7 @@ if __name__ == "__main__":
         for x in gas_profiles_output:
             gas_profiles_out.append(x[0].tolist())
         k = (pd.DataFrame(gas_profiles_out))
-        k.to_csv(f'{out_dir}/{rtol_str[-1]}_{atol_str[-1]}_{ratio}gas_out.csv', header=True)
+        k.to_csv(out_dir + '/' + {rtol_str[-1]} + '_' + {atol_str[-1]} + '_' + ratio + 'gas_out.csv', header=True)
 
     ratio_comparison = []
     for r in data:
