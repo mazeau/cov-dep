@@ -230,7 +230,7 @@ def plot_surf(data):
     fig.savefig(out_dir + '/' + str(ratio) + 'surf.pdf', bbox_inches='tight')
 
 
-def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False):
+def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False, rtol=1.0e-10, atol=1.0e-20):
     """
     Set up and solve the monolith reactor simulation.
 
@@ -307,8 +307,8 @@ def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False):
     sim.max_err_test_fails = 12
 
     # set relative and absolute tolerances on the simulation
-    sim.rtol = 1.0e-10
-    sim.atol = 1.0e-20
+    sim.rtol = rtol
+    sim.atol = atol
 
     gas_names = gas.species_names
     surf_names = surf.species_names
@@ -382,7 +382,7 @@ def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False):
     print(f"Finished monolith simulation for CH4 and O2 concs {mol_in[0], mol_in[1]} on thread {threading.get_ident()}")
     return data_out
 
-def run_one_simulation(path_to_cti, ratio):
+def run_one_simulation(path_to_cti, ratio, rtol=rtol, atol=atol):
     """
     Start all of the simulations all at once using multiprocessing
     """
@@ -391,7 +391,7 @@ def run_one_simulation(path_to_cti, ratio):
     far = 79 * fo2 / 21
     ratio_in = [fch4, fo2, far]  # mol fractions
 
-    a = monolith_simulation(path_to_cti, t_in, ratio_in)
+    a = monolith_simulation(path_to_cti, t_in, ratio_in, rtol=rtol, atol=atol)
     print("Finished simulation at a C/O ratio of {:.1f}".format(ratio))
     gas_out, surf_out, gas_names, surf_names, dist_array, T_array, i_ar, n_surf_reactions = a
     plot_gas(a)
@@ -585,7 +585,7 @@ def plot_ratio_comparisions(data):
     fig.savefig(out_dir + '/' + 'conversion&selectivity.pdf', bbox_inches='tight')
 
 
-def sensitivity(path_to_cti, old_data, temp, dk):
+def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     """
     Rerun simulations for each perturbed surface reaction and compare to the
     original simulation (data) to get a numerical value for sensitivity.
@@ -612,7 +612,7 @@ def sensitivity(path_to_cti, old_data, temp, dk):
 
     # run the simulations
     for rxn in range(n_surf_reactions):
-        gas_out, surf_out, gas_names, surf_names, dist_array, T_array,n_surf_reactions_from_sim = monolith_simulation(path_to_cti, temp, moles_in, sens=[dk, rxn])
+        gas_out, surf_out, gas_names, surf_names, dist_array, T_array,n_surf_reactions_from_sim = monolith_simulation(path_to_cti, temp, moles_in, sens=[dk, rxn], rtol=rtol, atol=atol)
         c = [gas_out, gas_names, dist_array, T_array]
         new_data = calculate(c, type='sens')
         sensitivities = calc_sensitivities(reference_data, new_data, index=rxn)
@@ -620,23 +620,28 @@ def sensitivity(path_to_cti, old_data, temp, dk):
     return sensitivity_results
 
 
-def export(rxns_translated, ratio):
+def export(rxns_translated, ratio, rtol=rtol, atol=atol):
     k = (pd.DataFrame.from_dict(data=rxns_translated, orient='columns'))
     k.columns = ['Reaction', 'SYNGAS Selec', 'SYNGAS Yield', 'CO Selectivity', 'CO % Yield', 'H2 Selectivity', 'H2 % Yield',
                  'CH4 Conversion', 'H2O+CO2 Selectivity', 'H2O+CO2 yield', 'Exit Temp', 'Peak Temp',
                  'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
-    out_dir = 'sensitivities'
+    out_dir = 'all-sensitivities'
     os.path.exists(out_dir) or os.makedirs(out_dir)
 
-    k.to_csv(out_dir + '/{:.1f}RxnSensitivity.csv'.format(ratio), header=True)
+    rtol_str = str(rtol)
+    rtol_str = rtol_str.split('-')
+    atol_str = str(atol)
+    atol_str = atol_str.split('-')
+
+    k.to_csv(f'{out_dir}/{rtol_str[-1]}_{atol_str[-1]}_{:.1f}RxnSensitivity.csv'.format(ratio), header=True)
 
 
-def sensitivity_worker(path_to_cti, data):
+def sensitivity_worker(path_to_cti, data, rtol=rtol, atol=atol):
     print('Starting sensitivity simulation for a C/O ratio of {:.1f}'.format(data[0]))
     old_data = data[1][0]
     ratio = data[0]
     try:
-        sensitivities = sensitivity(path_to_cti, old_data, t_in, dk)
+        sensitivities = sensitivity(path_to_cti, old_data, t_in, dk, rtol=rtol, atol=atol)
         print('Finished sensitivity simulation for a C/O ratio of {:.1f}'.format(ratio))
 
         reactions = [d[0] for d in sensitivities]  # getting the reactions
@@ -649,19 +654,26 @@ def sensitivity_worker(path_to_cti, data):
         sensitivities = [list(s) for s in sensitivities]
         for x in range(len(rxns_translated)):
             sensitivities[x][0] = rxns_translated[x]
-        export(sensitivities, ratio)
+        export(sensitivities, ratio, rtol=rtol, atol=atol)
     except Exception as e:
         print(str(e))
 
 
 if __name__ == "__main__":
 
+    # rtol = [1.0e-9, 1.0e-10, 1.0e-11, 1.0e-12, 1.0e-13, 1.0e-14]
+    # atol = [1.0e-16, 1.0e-17, 1.0e-18, 1.0e-19, 1.0e-20, 1.0e-21, 1.0e-22, 1.0e-23, 1.0e-24]
+
+    # tols = list(itertools.product(rtol,atol))
+
+    rtol = 1.0e-9
+    atol = 1.0e-16
 
     ratios = [.6, .7, .8, .9, 1., 1.1, 1.2, 1.3, 1.4, 1.6, 1.8, 2., 2.2, 2.4, 2.6]
     data = []
     num_threads = min(multiprocessing.cpu_count(), len(ratios))
     pool = multiprocessing.Pool(processes=num_threads)
-    data = pool.map(partial(run_one_simulation,'cantera/chem_annotated.cti'), ratios, 1) #use functools partial
+    data = pool.map(partial(run_one_simulation,'cantera/chem_annotated.cti', rtol=rtol, atol=atol), ratios, 1) #use functools partial
     pool.close()
     pool.join()
 
@@ -670,7 +682,12 @@ if __name__ == "__main__":
         output.append(calculate(r[1], type='output'))
     k = (pd.DataFrame.from_dict(data=output, orient='columns'))
     k.columns = ['C/O ratio', 'CH4 in', 'CH4 out', 'CO out', 'H2 out', 'H2O out', 'CO2 out', 'Exit temp', 'Max temp', 'Dist to max temp', 'O2 conv', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
-    k.to_csv('data.csv', header=True)  # raw data
+    rtol_str = str(rtol)
+    rtol_str = rtol_str.split('-')
+    atol_str = str(atol)
+    atol_str = atol_str.split('-')
+
+    k.to_csv(f'all-data/{rtol_str[-1]}_{atol_str[-1]}_data.csv', header=True)  # raw data
 
     # save gas profiles
     out_dir = 'gas_profiles'
@@ -683,7 +700,7 @@ if __name__ == "__main__":
         for x in gas_profiles_output:
             gas_profiles_out.append(x[0].tolist())
         k = (pd.DataFrame(gas_profiles_out))
-        k.to_csv('gas_profiles/gas_out' + str(ratio) + '.csv', header=True)
+        k.to_csv(f'{out_dir}/{rtol_str[-1]}_{atol_str[-1]}_{ratio}gas_out.csv', header=True)
 
     ratio_comparison = []
     for r in data:
@@ -715,6 +732,6 @@ if __name__ == "__main__":
     worker_input = []
     for r in range(len(data)):
         worker_input.append([data[r][0], [data[r][1]]])
-    pool.map(partial(sensitivity_worker,'cantera/chem_annotated.cti'), worker_input, 1)
+    pool.map(partial(sensitivity_worker,'cantera/chem_annotated.cti', rtol=rtol, atol=atol), worker_input, 1)
     pool.close()
     pool.join()
