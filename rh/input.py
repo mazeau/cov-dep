@@ -20,7 +20,7 @@ catalystProperties( # default values for Rh(111)
                        'H':(-2.479, 'eV/molecule'),
                        },
     surfaceSiteDensity=(2.72e-9, 'mol/cm^2'),
-    #coverageDependence=False,
+    coverageDependence=True,
 )
 
 # catalystProperties( # default values for Pt(111)
@@ -37,7 +37,7 @@ catalystProperties( # default values for Rh(111)
 #     metal = 'Rh',
 #     facet = '111',
 #     coverageDependence=False,
-)
+# )
 
 # List of species
 species(
