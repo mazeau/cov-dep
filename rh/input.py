@@ -12,16 +12,16 @@ database(
     kineticsEstimator = 'rate rules',
 )
 
-# catalystProperties( # default values for Rh(111)
-#     bindingEnergies = {
-#                        'C':(-6.568, 'eV/molecule'),
-#                        'O':(-4.610, 'eV/molecule'),
-#                        'N':(-4.352, 'eV/molecule'),
-#                        'H':(-2.479, 'eV/molecule'),
-#                        },
-#     surfaceSiteDensity=(2.72e-9, 'mol/cm^2'),
-#     coverageDependence=False,
-# )
+catalystProperties( # default values for Rh(111)
+    bindingEnergies = {
+                       'C':(-6.568, 'eV/molecule'),
+                       'O':(-4.610, 'eV/molecule'),
+                       'N':(-4.352, 'eV/molecule'),
+                       'H':(-2.479, 'eV/molecule'),
+                       },
+    surfaceSiteDensity=(2.72e-9, 'mol/cm^2'),
+    #coverageDependence=False,
+)
 
 # catalystProperties( # default values for Pt(111)
 #     bindingEnergies = {
@@ -33,10 +33,10 @@ database(
 #     surfaceSiteDensity=(2.72e-9, 'mol/cm^2'),
 # )
 
-catalystProperties(
-    metal = 'Rh',
-    facet = '111',
-    coverageDependence=False,
+# catalystProperties(
+#     metal = 'Rh',
+#     facet = '111',
+#     coverageDependence=False,
 )
 
 # List of species
@@ -401,7 +401,7 @@ model(
     toleranceKeepInEdge=0.0,
     toleranceMoveToCore=1e-1,
 # inturrupt tolerance was 0.1 wout pruning, 1e8 w pruning on
-    toleranceInterruptSimulation=1e8,
+    toleranceInterruptSimulation=1e-1,
     maximumEdgeSpecies=500000,
 # PRUNING: uncomment to prune
 #    minCoreSizeForPrune=50,
