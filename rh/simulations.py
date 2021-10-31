@@ -597,7 +597,7 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     original simulation (data) to get a numerical value for sensitivity.
     """
     sensitivity_results = []
-    gas_out_data, gas_names_data, dist_array_data, T_array_data, i_ar, n_surf_reactions = old_data
+    gas_out_data, gas_names_data, dist_array_data, T_array_data, n_surf_reactions = old_data
 
     reference = []
     for a in range(len(gas_names_data)):
@@ -705,7 +705,7 @@ if __name__ == "__main__":
         for x in gas_profiles_output:
             gas_profiles_out.append(x[0].tolist())
         k = (pd.DataFrame(gas_profiles_out))
-        k.to_csv(out_dir + '/' + str(rtol_str[-1]) + '_' + str(atol_str[-1]) + '_' + str(ratio) + 'gas_out.csv', header=True)
+        k.to_csv(out_dir + '/' + str(rtol_str[-1]) + '_' + str(atol_str[-1]) + '_' + str('{:.1f}'.format(ratio)) + 'gas_out.csv', header=True)
 
     ratio_comparison = []
     for r in data:
