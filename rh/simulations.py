@@ -692,7 +692,7 @@ if __name__ == "__main__":
 
     os.path.exists('all-data') or os.makedirs('all-data')
 
-    k.to_csv('all-data/' + rtol_str[-1] + '_' + atol_str[-1] + '_data.csv', header=True)  # raw data
+    k.to_csv('all-data/' + str(rtol_str[-1]) + '_' + str(atol_str[-1]) + '_data.csv', header=True)  # raw data
 
     # save gas profiles
     out_dir = 'gas_profiles'
@@ -705,7 +705,7 @@ if __name__ == "__main__":
         for x in gas_profiles_output:
             gas_profiles_out.append(x[0].tolist())
         k = (pd.DataFrame(gas_profiles_out))
-        k.to_csv(out_dir + '/' + rtol_str[-1] + '_' + atol_str[-1] + '_' + ratio + 'gas_out.csv', header=True)
+        k.to_csv(out_dir + '/' + str(rtol_str[-1]) + '_' + str(atol_str[-1]) + '_' + ratio + 'gas_out.csv', header=True)
 
     ratio_comparison = []
     for r in data:
