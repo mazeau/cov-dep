@@ -40,6 +40,12 @@ import os
 import multiprocessing
 from functools import partial
 import threading
+
+global rtol
+global atol
+rtol = 1.0e-9
+atol = 1.0e-16
+
 # unit conversion factors to SI
 mm = 0.001
 cm = 0.01
@@ -665,11 +671,6 @@ if __name__ == "__main__":
     # atol = [1.0e-16, 1.0e-17, 1.0e-18, 1.0e-19, 1.0e-20, 1.0e-21, 1.0e-22, 1.0e-23, 1.0e-24]
 
     # tols = list(itertools.product(rtol,atol))
-
-    global rtol
-    global atol
-    rtol = 1.0e-9
-    atol = 1.0e-16
 
     ratios = [.6, .7, .8, .9, 1., 1.1, 1.2, 1.3, 1.4, 1.6, 1.8, 2., 2.2, 2.4, 2.6]
     data = []
