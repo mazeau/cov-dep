@@ -236,7 +236,7 @@ def plot_surf(data):
     fig.savefig(out_dir + '/' + str(ratio) + 'surf.pdf', bbox_inches='tight')
 
 
-def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False, rtol=1.0e-10, atol=1.0e-20):
+def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False, rtol=rtol, atol=atol):
     """
     Set up and solve the monolith reactor simulation.
 
@@ -676,7 +676,7 @@ if __name__ == "__main__":
     data = []
     num_threads = min(multiprocessing.cpu_count(), len(ratios))
     pool = multiprocessing.Pool(processes=num_threads)
-    data = pool.map(partial(run_one_simulation,'cantera/chem_annotated.cti', ratios), 1) #use functools partial
+    data = pool.map(partial(run_one_simulation,'cantera/chem_annotated.cti'),ratios) #use functools partial
     pool.close()
     pool.join()
 
@@ -735,6 +735,6 @@ if __name__ == "__main__":
     worker_input = []
     for r in range(len(data)):
         worker_input.append([data[r][0], [data[r][1]]])
-    pool.map(partial(sensitivity_worker,'cantera/chem_annotated.cti'), worker_input, 1)
+    pool.map(partial(sensitivity_worker,'cantera/chem_annotated.cti'), worker_input)
     pool.close()
     pool.join()
