@@ -382,7 +382,7 @@ def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False, rt
     print(f"Finished monolith simulation for CH4 and O2 concs {mol_in[0], mol_in[1]} on thread {threading.get_ident()}")
     return data_out
 
-def run_one_simulation(path_to_cti, ratio, rtol=rtol, atol=atol):
+def run_one_simulation(path_to_cti, ratio):
     """
     Start all of the simulations all at once using multiprocessing
     """
@@ -636,7 +636,7 @@ def export(rxns_translated, ratio, rtol=rtol, atol=atol):
     k.to_csv(out_dir + '/' + rtol_str[-1] + '_' + atol_str[-1] + '_{:.1f}RxnSensitivity.csv'.format(ratio), header=True)
 
 
-def sensitivity_worker(path_to_cti, data, rtol=rtol, atol=atol):
+def sensitivity_worker(path_to_cti, data):
     print('Starting sensitivity simulation for a C/O ratio of {:.1f}'.format(data[0]))
     old_data = data[1][0]
     ratio = data[0]
@@ -666,6 +666,8 @@ if __name__ == "__main__":
 
     # tols = list(itertools.product(rtol,atol))
 
+    global rtol
+    global atol
     rtol = 1.0e-9
     atol = 1.0e-16
 
@@ -673,7 +675,7 @@ if __name__ == "__main__":
     data = []
     num_threads = min(multiprocessing.cpu_count(), len(ratios))
     pool = multiprocessing.Pool(processes=num_threads)
-    data = pool.map(partial(run_one_simulation,'cantera/chem_annotated.cti', rtol=rtol, atol=atol), ratios, 1) #use functools partial
+    data = pool.map(partial(run_one_simulation,'cantera/chem_annotated.cti', ratios), 1) #use functools partial
     pool.close()
     pool.join()
 
@@ -732,6 +734,6 @@ if __name__ == "__main__":
     worker_input = []
     for r in range(len(data)):
         worker_input.append([data[r][0], [data[r][1]]])
-    pool.map(partial(sensitivity_worker,'cantera/chem_annotated.cti', rtol=rtol, atol=atol), worker_input, 1)
+    pool.map(partial(sensitivity_worker,'cantera/chem_annotated.cti'), worker_input, 1)
     pool.close()
     pool.join()
