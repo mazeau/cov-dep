@@ -92,7 +92,7 @@ def setup_ct_solution(path_to_cti):
     gas = ct.Solution(path_to_cti, 'gas')
     surf = ct.Interface(path_to_cti, 'surface1', [gas])
 
-    print("This mechanism contains {} gas reactions and {} surface reactions".format(gas.n_reactions, surf.n_reactions))
+    # print("This mechanism contains {} gas reactions and {} surface reactions".format(gas.n_reactions, surf.n_reactions))
     print(f"Thread ID from threading{threading.get_ident()}")
     i_ar = gas.species_index('Ar')
 
@@ -597,7 +597,7 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     original simulation (data) to get a numerical value for sensitivity.
     """
     sensitivity_results = []
-    gas_out_data, gas_names_data, dist_array_data, T_array_data, n_surf_reactions = old_data
+    gas_out_data, gas_names_data, dist_array_data, T_array_data, i_ar, n_surf_reactions = old_data
 
     reference = []
     for a in range(len(gas_names_data)):
@@ -646,6 +646,7 @@ def sensitivity_worker(path_to_cti, data):
     print('Starting sensitivity simulation for a C/O ratio of {:.1f}'.format(data[0]))
     old_data = data[1][0]
     ratio = data[0]
+    print(old_data)
     try:
         sensitivities = sensitivity(path_to_cti, old_data, t_in, dk, rtol=rtol, atol=atol)
         print('Finished sensitivity simulation for a C/O ratio of {:.1f}'.format(ratio))
