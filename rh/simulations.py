@@ -690,6 +690,8 @@ if __name__ == "__main__":
     atol_str = str(atol)
     atol_str = atol_str.split('-')
 
+    os.path.exists('all-data') or os.makedirs('all-data')
+
     k.to_csv('all-data/' + rtol_str[-1] + '_' + atol_str[-1] + '_data.csv', header=True)  # raw data
 
     # save gas profiles
