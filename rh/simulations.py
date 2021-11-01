@@ -264,7 +264,7 @@ def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False, rt
     gas, surf, i_ar, n_surf_reactions= sols_dict['gas'], sols_dict['surf'], sols_dict['i_ar'],sols_dict['n_surf_reactions']
     ch4, o2, ar = mol_in
     ratio = ch4 / (2 * o2)
-    print(f"Running monolith simulation at a C/O ratio of {ratio} on thread {threading.get_ident()}")
+    print(f"Running monolith simulation at a C/O ratio of {ratio:.1f} on thread {threading.get_ident()}")
 
     X = f"CH4(2):{ch4}, O2(3):{o2}, Ar:{ar}"
     gas.TPX = 273.15, ct.one_atm, X  # need to initialize mass flow rate at STP
@@ -386,7 +386,7 @@ def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False, rt
     gas_names = np.array(gas_names)
     surf_names = np.array(surf_names)
     data_out = gas_out, surf_out, gas_names, surf_names, dist_array, T_array, i_ar, n_surf_reactions
-    print(f"Finished monolith simulation at a C/O ratio of {ratio} on thread {threading.get_ident()}")
+    print(f"Finished monolith simulation at a C/O ratio of {ratio:.1f} on thread {threading.get_ident()}")
     return data_out
 
 def run_one_simulation(path_to_cti, ratio):
@@ -399,7 +399,7 @@ def run_one_simulation(path_to_cti, ratio):
     ratio_in = [fch4, fo2, far]  # mol fractions
 
     a = monolith_simulation(path_to_cti, t_in, ratio_in, rtol=rtol, atol=atol)
-    print("Finished simulation at a C/O ratio of {:.1f}".format(ratio))
+    print(f"Finished simulation at a C/O ratio of {ratio:.1f}")
     gas_out, surf_out, gas_names, surf_names, dist_array, T_array, i_ar, n_surf_reactions = a
     plot_gas(a)
     plot_gas(a, x_lim=(8,25))
@@ -644,12 +644,12 @@ def export(rxns_translated, ratio, rtol=rtol, atol=atol):
 
 
 def sensitivity_worker(path_to_cti, data):
-    print('Starting sensitivity simulation for a C/O ratio of {:.1f}'.format(data[0]))
+    print(f'Starting sensitivity simulation for a C/O ratio of {data[0]:.1f}')
     old_data = data[1][0]
     ratio = data[0]
     try:
         sensitivities = sensitivity(path_to_cti, old_data, t_in, dk, rtol=rtol, atol=atol)
-        print('Finished sensitivity simulation for a C/O ratio of {:.1f}'.format(ratio))
+        print(f'Finished sensitivity simulation for a C/O ratio of {ratio:.1f}')
 
         reactions = [d[0] for d in sensitivities]  # getting the reactions
         rxns_translated = []
@@ -657,7 +657,7 @@ def sensitivity_worker(path_to_cti, data):
             for key, smile in names.items():
                 x = re.sub(re.escape(key), smile, x)
             rxns_translated.append(x)
-        print('Finished translating for C/O ratio of {:.1f}'.format(ratio))
+        print(f'Finished translating for C/O ratio of {ratio:.1f}')
         sensitivities = [list(s) for s in sensitivities]
         for x in range(len(rxns_translated)):
             sensitivities[x][0] = rxns_translated[x]
