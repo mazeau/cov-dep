@@ -597,10 +597,8 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     original simulation (data) to get a numerical value for sensitivity.
     """
     sensitivity_results = []
-    print('line 600')
-    print(old_data)
-    gas_out_data, gas_names_data, dist_array_data, T_array_data, i_ar, n_surf_reactions = old_data
-
+    gas_out_data, gas_names_data, dist_array_data, T_array_data, n_surf_reactions = old_data
+    print('line 601')
     reference = []
     for a in range(len(gas_names_data)):
         reference.append([gas_names_data[a], [gas_out_data[:, a]]])
