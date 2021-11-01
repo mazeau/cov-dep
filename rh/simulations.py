@@ -399,7 +399,7 @@ def run_one_simulation(path_to_cti, ratio):
     ratio_in = [fch4, fo2, far]  # mol fractions
 
     a = monolith_simulation(path_to_cti, t_in, ratio_in, rtol=rtol, atol=atol)
-    print(f"Finished simulation at a C/O ratio of {ratio:.1f}")
+
     gas_out, surf_out, gas_names, surf_names, dist_array, T_array, i_ar, n_surf_reactions = a
     plot_gas(a)
     plot_gas(a, x_lim=(8,25))
@@ -622,7 +622,6 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
         c = [gas_out, gas_names, dist_array, T_array, n_surf_reactions_from_sim]
         new_data = calculate(c, type='sens')
         sensitivities = calc_sensitivities(reference_data, new_data, index=rxn)
-        print('line 627')
         sensitivity_results.append(sensitivities)
     return sensitivity_results
 
