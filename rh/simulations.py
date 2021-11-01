@@ -44,7 +44,7 @@ import threading
 global rtol
 global atol
 rtol = 1.0e-9
-atol = 1.0e-16
+atol = 1.0e-19
 
 # unit conversion factors to SI
 mm = 0.001
