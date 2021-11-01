@@ -615,10 +615,9 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     moles_in = [ch4_in, o2_in, ar_in]
 
     reference_data = calculate(old_data, type='sens')
-    print('line 618')
     # run the simulations
     for rxn in range(n_surf_reactions):
-        gas_out, surf_out, gas_names, surf_names, dist_array, T_array,n_surf_reactions_from_sim = monolith_simulation(path_to_cti, temp, moles_in, sens=[dk, rxn], rtol=rtol, atol=atol)
+        gas_out, surf_out, gas_names, surf_names, dist_array, T_array, i_ar, n_surf_reactions_from_sim = monolith_simulation(path_to_cti, temp, moles_in, sens=[dk, rxn], rtol=rtol, atol=atol)
         c = [gas_out, gas_names, dist_array, T_array, n_surf_reactions_from_sim]
         print('line 623')
         new_data = calculate(c, type='sens')
