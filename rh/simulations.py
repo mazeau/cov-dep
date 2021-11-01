@@ -93,7 +93,7 @@ def setup_ct_solution(path_to_cti):
     surf = ct.Interface(path_to_cti, 'surface1', [gas])
 
     # print("This mechanism contains {} gas reactions and {} surface reactions".format(gas.n_reactions, surf.n_reactions))
-    print(f"Thread ID from threading{threading.get_ident()}")
+    # print(f"Thread ID from threading{threading.get_ident()}")
     i_ar = gas.species_index('Ar')
 
 
@@ -261,9 +261,9 @@ def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False, rt
     """
     sols_dict = setup_ct_solution(path_to_cti)
     gas, surf, i_ar, n_surf_reactions= sols_dict['gas'], sols_dict['surf'], sols_dict['i_ar'],sols_dict['n_surf_reactions']
-    print(f"Running monolith simulation with CH4 and O2 concs {mol_in[0], mol_in[1]} on thread {threading.get_ident()}")
     ch4, o2, ar = mol_in
     ratio = ch4 / (2 * o2)
+    print(f"Running monolith simulation at a C/O ratio of {ratio} on thread {threading.get_ident()}")
 
     X = f"CH4(2):{ch4}, O2(3):{o2}, Ar:{ar}"
     gas.TPX = 273.15, ct.one_atm, X  # need to initialize mass flow rate at STP
@@ -385,7 +385,7 @@ def monolith_simulation(path_to_cti, temp, mol_in, verbose=False, sens=False, rt
     gas_names = np.array(gas_names)
     surf_names = np.array(surf_names)
     data_out = gas_out, surf_out, gas_names, surf_names, dist_array, T_array, i_ar, n_surf_reactions
-    print(f"Finished monolith simulation for CH4 and O2 concs {mol_in[0], mol_in[1]} on thread {threading.get_ident()}")
+    print(f"Finished monolith simulation at a C/O ratio of {ratio} on thread {threading.get_ident()}")
     return data_out
 
 def run_one_simulation(path_to_cti, ratio):
@@ -615,13 +615,16 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     moles_in = [ch4_in, o2_in, ar_in]
 
     reference_data = calculate(old_data, type='sens')
-
+    print('line 618')
     # run the simulations
     for rxn in range(n_surf_reactions):
         gas_out, surf_out, gas_names, surf_names, dist_array, T_array,n_surf_reactions_from_sim = monolith_simulation(path_to_cti, temp, moles_in, sens=[dk, rxn], rtol=rtol, atol=atol)
         c = [gas_out, gas_names, dist_array, T_array, n_surf_reactions_from_sim]
+        print('line 623')
         new_data = calculate(c, type='sens')
+        print('line 625')
         sensitivities = calc_sensitivities(reference_data, new_data, index=rxn)
+        print('line 627')
         sensitivity_results.append(sensitivities)
     return sensitivity_results
 
