@@ -597,6 +597,8 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     original simulation (data) to get a numerical value for sensitivity.
     """
     sensitivity_results = []
+    print('line 600')
+    print(old_data)
     gas_out_data, gas_names_data, dist_array_data, T_array_data, i_ar, n_surf_reactions = old_data
 
     reference = []
@@ -646,7 +648,6 @@ def sensitivity_worker(path_to_cti, data):
     print('Starting sensitivity simulation for a C/O ratio of {:.1f}'.format(data[0]))
     old_data = data[1][0]
     ratio = data[0]
-    print(old_data)
     try:
         sensitivities = sensitivity(path_to_cti, old_data, t_in, dk, rtol=rtol, atol=atol)
         print('Finished sensitivity simulation for a C/O ratio of {:.1f}'.format(ratio))
