@@ -598,7 +598,7 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     """
     sensitivity_results = []
     gas_out_data, gas_names_data, dist_array_data, T_array_data, n_surf_reactions = old_data
-    print('line 601')
+
     reference = []
     for a in range(len(gas_names_data)):
         reference.append([gas_names_data[a], [gas_out_data[:, a]]])
@@ -614,12 +614,12 @@ def sensitivity(path_to_cti, old_data, temp, dk, rtol=rtol, atol=atol):
     ratio = ch4_in / (2 * o2_in)
     moles_in = [ch4_in, o2_in, ar_in]
 
-    reference_data = calculate(old_data)
+    reference_data = calculate(old_data, type='sens')
 
     # run the simulations
     for rxn in range(n_surf_reactions):
         gas_out, surf_out, gas_names, surf_names, dist_array, T_array,n_surf_reactions_from_sim = monolith_simulation(path_to_cti, temp, moles_in, sens=[dk, rxn], rtol=rtol, atol=atol)
-        c = [gas_out, gas_names, dist_array, T_array]
+        c = [gas_out, gas_names, dist_array, T_array, n_surf_reactions_from_sim]
         new_data = calculate(c, type='sens')
         sensitivities = calc_sensitivities(reference_data, new_data, index=rxn)
         sensitivity_results.append(sensitivities)
