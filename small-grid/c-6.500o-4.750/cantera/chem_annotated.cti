@@ -399,11 +399,11 @@ species(name='COX(23)',
         atoms='C:1 O:1 X:1',
         thermo=(NASA([100.00, 891.33],
                      [-1.38215450E+00,  3.75307090E-02, -8.29764914E-05,
-                       8.09710767E-08, -2.85475175E-11, -3.34615926E+04,
+                       8.09710767E-08, -2.85475175E-11, -3.30670394E+04,
                        4.35452365E+00]),
                 NASA([891.33, 5000.00],
                      [ 1.38094041E+00,  8.05713036E-03, -4.64305420E-06,
-                       8.91162171E-10, -5.90041183E-14, -3.32759323E+04,
+                       8.91162171E-10, -5.90041183E-14, -3.28813791E+04,
                       -4.85336911E+00])))
 
 species(name='CH4X(24)',
@@ -421,55 +421,55 @@ species(name='OX(25)',
         atoms='O:1 X:1',
         thermo=(NASA([100.00, 888.26],
                      [-7.59013115E-01,  1.89868504E-02, -3.82473769E-05,
-                       3.43558429E-08, -1.13974388E-11, -2.91219638E+04,
+                       3.43558429E-08, -1.13974388E-11, -3.07465947E+04,
                        1.76017413E+00]),
                 NASA([888.26, 5000.00],
                      [ 1.89893631E+00,  2.03295404E-03, -1.19976562E-06,
-                       2.32680628E-10, -1.53508256E-14, -2.93975099E+04,
+                       2.32680628E-10, -1.53508256E-14, -3.10221408E+04,
                       -9.64104147E+00])))
 
 species(name='CH2X(26)',
         atoms='C:1 H:2 X:1',
         thermo=(NASA([100.00, 1199.83],
                      [-1.02006579E+00,  2.03778537E-02, -2.17291038E-05,
-                       1.15868509E-08, -2.38469874E-12,  7.03871762E+02,
+                       1.15868509E-08, -2.38469874E-12,  1.09842498E+03,
                        2.99160401E+00]),
                 NASA([1199.83, 5000.00],
                      [ 3.89285579E+00,  3.99892109E-03, -1.25227839E-06,
-                       2.09081114E-10, -1.39642281E-14, -4.75047477E+02,
+                       2.09081114E-10, -1.39642281E-14, -8.04942642E+01,
                       -2.16053761E+01])))
 
 species(name='CH3X(27)',
         atoms='C:1 H:3 X:1',
         thermo=(NASA([100.00, 848.29],
                      [-1.21090948E+00,  2.92391268E-02, -4.49013400E-05,
-                       3.86013257E-08, -1.30362737E-11, -5.59221759E+03,
+                       3.86013257E-08, -1.30362737E-11, -5.39494098E+03,
                        6.80941342E+00]),
                 NASA([848.29, 5000.00],
                      [ 1.62291819E+00,  1.12987099E-02, -5.08315892E-06,
-                       9.46831114E-10, -6.42883447E-14, -5.90828636E+03,
+                       9.46831114E-10, -6.42883447E-14, -5.71100976E+03,
                       -5.42506309E+00])))
 
 species(name='CHX(28)',
         atoms='C:1 H:1 X:1',
         thermo=(NASA([100.00, 1596.80],
                      [-9.66377707E-01,  1.63179240E-02, -1.75392895E-05,
-                       8.64101496E-09, -1.55503094E-12, -1.77039666E+03,
+                       8.64101496E-09, -1.55503094E-12, -1.17856684E+03,
                        2.54983298E+00]),
                 NASA([1596.80, 5000.00],
                      [ 4.21489748E+00,  2.18262918E-04,  5.15722639E-07,
-                      -1.20813630E-10,  8.35429220E-15, -3.02725718E+03,
+                      -1.20813630E-10,  8.35429220E-15, -2.43542736E+03,
                       -2.36259577E+01])))
 
 species(name='CX(29)',
         atoms='C:1 X:1',
         thermo=(NASA([100.00, 1401.13],
                      [-6.04856936E-01,  1.10908323E-02, -1.34369583E-05,
-                       7.18238106E-09, -1.40685009E-12,  8.35681359E+03,
+                       7.18238106E-09, -1.40685009E-12,  9.14592002E+03,
                        1.48480227E+00]),
                 NASA([1401.13, 5000.00],
                      [ 3.08076010E+00, -6.87464599E-04,  5.17589072E-07,
-                      -9.73020894E-11,  6.24242994E-15,  7.44733886E+03,
+                      -9.73020894E-11,  6.24242994E-15,  8.23644528E+03,
                       -1.70991375E+01])))
 
 species(name='H2X(30)',
@@ -487,11 +487,11 @@ species(name='OHX(31)',
         atoms='H:1 O:1 X:1',
         thermo=(NASA([100.00, 914.54],
                      [-1.29522792E+00,  3.36487597E-02, -7.07760603E-05,
-                       6.54375105E-08, -2.19437885E-11, -2.52885646E+04,
+                       6.54375105E-08, -2.19437885E-11, -2.61008801E+04,
                        4.37657050E+00]),
                 NASA([914.54, 5000.00],
                      [ 2.43541504E+00,  4.64599933E-03, -2.39987608E-06,
-                       4.26351871E-10, -2.60607840E-14, -2.54404225E+04,
+                       4.26351871E-10, -2.60607840E-14, -2.62527379E+04,
                       -1.03879495E+01])))
 
 species(name='H2OX(32)',
@@ -509,11 +509,11 @@ species(name='CHOX(33)',
         atoms='C:1 H:1 O:1 X:1',
         thermo=(NASA([100.00, 873.23],
                      [-1.43677423E+00,  3.69240780E-02, -7.17893681E-05,
-                       6.73517254E-08, -2.35170851E-11, -2.71571338E+04,
+                       6.73517254E-08, -2.35170851E-11, -2.69598572E+04,
                        8.27554338E+00]),
                 NASA([873.23, 5000.00],
                      [ 1.83275225E+00,  1.00779631E-02, -5.28538490E-06,
-                       1.01353243E-09, -6.85194774E-14, -2.72756035E+04,
+                       1.01353243E-09, -6.85194774E-14, -2.70783269E+04,
                       -4.46364400E+00])))
 
 species(name='CH2OX(56)',
@@ -531,33 +531,33 @@ species(name='CH3OX(60)',
         atoms='C:1 H:3 O:1 X:1',
         thermo=(NASA([100.00, 857.63],
                      [-1.68430314E+00,  4.28034059E-02, -7.50824214E-05,
-                       7.03742068E-08, -2.50949131E-11, -2.59568858E+04,
+                       7.03742068E-08, -2.50949131E-11, -2.67692012E+04,
                        7.76451793E+00]),
                 NASA([857.63, 5000.00],
                      [ 1.14811430E+00,  1.71341653E-02, -8.39622759E-06,
-                       1.59804147E-09, -1.08972465E-13, -2.59845289E+04,
+                       1.59804147E-09, -1.08972465E-13, -2.67968443E+04,
                       -2.79399018E+00])))
 
 species(name='CHOX(231)',
         atoms='C:1 H:1 O:1 X:1',
         thermo=(NASA([100.00, 878.72],
                      [-1.56650438E+00,  3.83564425E-02, -7.06882057E-05,
-                       6.19537365E-08, -2.04286807E-11, -2.91549493E+04,
+                       6.19537365E-08, -2.04286807E-11, -2.85631195E+04,
                        5.18259593E+00]),
                 NASA([878.72, 5000.00],
                      [ 3.55140144E+00,  7.05339464E-03, -3.58654473E-06,
-                       6.76567874E-10, -4.51235553E-14, -2.97453030E+04,
+                       6.76567874E-10, -4.51235553E-14, -2.91534731E+04,
                       -1.70879098E+01])))
 
 species(name='C2H3X(241)',
         atoms='C:2 H:3 X:1',
         thermo=(NASA([100.00, 808.71],
                      [-1.45264608E+00,  3.42706550E-02, -4.40840565E-05,
-                       3.22605342E-08, -9.67614723E-12, -9.49075417E+03,
+                       3.22605342E-08, -9.67614723E-12, -8.89892435E+03,
                        5.13280791E+00]),
                 NASA([808.71, 5000.00],
                      [ 2.64803682E+00,  1.39871013E-02, -6.46021188E-06,
-                       1.24353494E-09, -8.72723400E-14, -1.01539752E+04,
+                       1.24353494E-09, -8.72723400E-14, -9.56214542E+03,
                       -1.37797853E+01])))
 
 #-------------------------------------------------------------------------------
@@ -1146,10 +1146,10 @@ surface_reaction('X(1) + X(1) + CO2(4) <=> OX(25) + COX(23)', stick(2.000000e-02
 #  Euclidian distance = 3.0
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Adsorption_Dissociative
-#  Ea raised from 28.1 to 31.4 kJ/mol to match endothermicity of reaction.
+#  Ea raised from 21.3 to 24.6 kJ/mol to match endothermicity of reaction.
 
 # surface1 Reaction 26
-surface_reaction('X(1) + X(1) + H2O(5) <=> HX(21) + OHX(31)', stick(3.000000e-02, 0.0, 7.498),
+surface_reaction('X(1) + X(1) + H2O(5) <=> HX(21) + OHX(31)', stick(3.000000e-02, 0.0, 5.884),
                  id='surface1-26')
 #  Reaction index: Chemkin #27; RMG #93
 #  Template reaction: Surface_Adsorption_Dissociative
@@ -1157,9 +1157,10 @@ surface_reaction('X(1) + X(1) + H2O(5) <=> HX(21) + OHX(31)', stick(3.000000e-02
 #  Estimated using an average for rate rule [Adsorbate;VacantSite1;VacantSite2]
 #  Euclidian distance = 0
 #  family: Surface_Adsorption_Dissociative
+#  Ea raised from 5.0 to 5.8 kJ/mol to match endothermicity of reaction.
 
 # surface1 Reaction 27
-surface_reaction('X(1) + X(1) + C2H6(8) <=> CH3X(27) + CH3X(27)', stick(1.500000e-02, 0.0, 1.195),
+surface_reaction('X(1) + X(1) + C2H6(8) <=> CH3X(27) + CH3X(27)', stick(1.500000e-02, 0.0, 1.392),
                  id='surface1-27')
 #  Reaction index: Chemkin #28; RMG #96
 #  Template reaction: Surface_Adsorption_Dissociative
@@ -1242,7 +1243,7 @@ surface_reaction('X(1) + CHOX(33) <=> HX(21) + COX(23)', [5.784050e+20, 0.0, 2.8
 #  Euclidian distance = 2.23606797749979
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -22.7 to 0.0 kJ/mol.
+#  Ea raised from -23.5 to 0.0 kJ/mol.
 
 # surface1 Reaction 35
 surface_reaction('H2X(30) + CH3X(27) <=> HX(21) + CH4X(24)', [2.000000e+17, 0.0, 0.0],
@@ -1298,7 +1299,7 @@ surface_reaction('OX(25) + H2X(30) <=> HX(21) + OHX(31)', [4.782614e+24, -0.188,
 #  Euclidian distance = 2.23606797749979
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -30.4 to 0.0 kJ/mol.
+#  Ea raised from -27.1 to 0.0 kJ/mol.
 
 # surface1 Reaction 40
 surface_reaction('OHX(31) + H2X(30) <=> HX(21) + H2OX(32)', [2.000000e+17, 0.0, 0.0],
@@ -1424,15 +1425,15 @@ surface_reaction('CX(29) + CH4X(24) <=> CHX(28) + CH3X(27)', [4.147872e+17, 0.93
                  id='surface1-51')
 #  Reaction index: Chemkin #52; RMG #626
 #  Template reaction: Surface_Abstraction_Single_vdW
-#  Flux pairs: CH4X(24), CH3X(27); OHX(31), H2OX(32);
-#  Estimated using template [Donating;Abstracting] for rate rule [C-R;*O-H]
-#  Euclidian distance = 2.23606797749979
-#  Multiplied by reaction path degeneracy 4.0
+#  Flux pairs: CH3X(27), CH4X(24); H2OX(32), OHX(31);
+#  Estimated using template [Donating;Abstracting] for rate rule [H2O;*C-3R]
+#  Euclidian distance = 3.605551275463989
+#  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -7.7 to 0.0 kJ/mol.
+#  Ea raised from 3.5 to 6.1 kJ/mol to match endothermicity of reaction.
 
 # surface1 Reaction 52
-surface_reaction('OHX(31) + CH4X(24) <=> H2OX(32) + CH3X(27)', [4.000000e+17, 0.0, 0.0],
+surface_reaction('H2OX(32) + CH3X(27) <=> OHX(31) + CH4X(24)', [2.000000e+17, 0.0, 1.455],
                  id='surface1-52')
 #  Reaction index: Chemkin #53; RMG #631
 #  Template reaction: Surface_Abstraction
@@ -1626,10 +1627,10 @@ surface_reaction('X(1) + CH2O(9) <=> CH2OX(56)', stick(1.000000e-01, 0.0, 0.0),
 #  This reaction matched rate rule [Root_N-1R!H->N_1BrCClFIOPSSi->C_Ext-1C-R_5R!H->O_2R->H_N-Sp-5O-1C]
 #  family: Surface_Dissociation_vdW
 #  metal: Cu
-#  Ea raised from 45.3 to 66.8 kJ/mol to match endothermicity of reaction.
+#  Ea raised from 45.3 to 65.2 kJ/mol to match endothermicity of reaction.
 
 # surface1 Reaction 70
-surface_reaction('HX(21) + CHOX(33) <=> X(1) + CH2OX(56)', [1.932000e+21, 0.0, 15.968],
+surface_reaction('HX(21) + CHOX(33) <=> X(1) + CH2OX(56)', [1.932000e+21, 0.0, 15.576],
                  id='surface1-70')
 #  Reaction index: Chemkin #71; RMG #628
 #  Template reaction: Surface_Abstraction_Single_vdW
@@ -1694,7 +1695,7 @@ surface_reaction('CX(29) + CH2OX(56) <=> CHX(28) + CHOX(33)', [2.073936e+17, 0.9
 #  Euclidian distance = 1.0
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -27.5 to 0.0 kJ/mol.
+#  Ea raised from -26.7 to 0.0 kJ/mol.
 
 # surface1 Reaction 76
 surface_reaction('HX(21) + CH2OX(56) <=> H2X(30) + CHOX(33)', [2.000000e+17, 0.0, 0.0],
@@ -1718,7 +1719,7 @@ surface_reaction('OX(25) + CH2OX(56) <=> OHX(31) + CHOX(33)', [2.810000e+24, -0.
 #  Euclidian distance = 2.23606797749979
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -57.9 to 0.0 kJ/mol.
+#  Ea raised from -53.7 to 0.0 kJ/mol.
 
 # surface1 Reaction 78
 surface_reaction('OHX(31) + CH2OX(56) <=> H2OX(32) + CHOX(33)', [2.000000e+17, 0.0, 0.0],

@@ -399,11 +399,11 @@ species(name='COX(23)',
         atoms='C:1 O:1 X:1',
         thermo=(NASA([100.00, 891.31],
                      [-1.38220492E+00,  3.75313467E-02, -8.29789341E-05,
-                       8.09745725E-08, -2.85491668E-11, -3.34615904E+04,
+                       8.09745725E-08, -2.85491668E-11, -3.30670372E+04,
                        4.35470172E+00]),
                 NASA([891.31, 5000.00],
                      [ 1.38106885E+00,  8.05690339E-03, -4.64291970E-06,
-                       8.91129769E-10, -5.90013911E-14, -3.32759836E+04,
+                       8.91129769E-10, -5.90013911E-14, -3.28814304E+04,
                       -4.85408694E+00])))
 
 species(name='CH4X(24)',
@@ -421,55 +421,55 @@ species(name='OX(25)',
         atoms='O:1 X:1',
         thermo=(NASA([100.00, 888.26],
                      [-7.59010605E-01,  1.89868186E-02, -3.82472548E-05,
-                       3.43556678E-08, -1.13973560E-11, -2.91219639E+04,
+                       3.43556678E-08, -1.13973560E-11, -2.78454682E+04,
                        1.76016526E+00]),
                 NASA([888.26, 5000.00],
                      [ 1.89893001E+00,  2.03296518E-03, -1.19977223E-06,
-                       2.32682221E-10, -1.53509598E-14, -2.93975074E+04,
+                       2.32682221E-10, -1.53509598E-14, -2.81210117E+04,
                       -9.64100628E+00])))
 
 species(name='CH2X(26)',
         atoms='C:1 H:2 X:1',
         thermo=(NASA([100.00, 1199.83],
                      [-1.02006579E+00,  2.03778537E-02, -2.17291038E-05,
-                       1.15868509E-08, -2.38469875E-12,  7.03871762E+02,
+                       1.15868509E-08, -2.38469875E-12,  1.09842498E+03,
                        2.99160402E+00]),
                 NASA([1199.83, 5000.00],
                      [ 3.89285578E+00,  3.99892111E-03, -1.25227841E-06,
-                       2.09081117E-10, -1.39642283E-14, -4.75047473E+02,
+                       2.09081117E-10, -1.39642283E-14, -8.04942600E+01,
                       -2.16053760E+01])))
 
 species(name='CH3X(27)',
         atoms='C:1 H:3 X:1',
         thermo=(NASA([100.00, 848.30],
                      [-1.21090759E+00,  2.92391022E-02, -4.49012428E-05,
-                       3.86011813E-08, -1.30362027E-11, -5.59221767E+03,
+                       3.86011813E-08, -1.30362027E-11, -5.39494106E+03,
                        6.80940675E+00]),
                 NASA([848.30, 5000.00],
                      [ 1.62291424E+00,  1.12987170E-02, -5.08316318E-06,
-                       9.46832148E-10, -6.42884322E-14, -5.90828482E+03,
+                       9.46832148E-10, -6.42884322E-14, -5.71100822E+03,
                       -5.42504109E+00])))
 
 species(name='CHX(28)',
         atoms='C:1 H:1 X:1',
         thermo=(NASA([100.00, 1596.80],
                      [-9.66377750E-01,  1.63179244E-02, -1.75392905E-05,
-                       8.64101594E-09, -1.55503122E-12, -1.77039666E+03,
+                       8.64101594E-09, -1.55503122E-12, -1.17856684E+03,
                        2.54983314E+00]),
                 NASA([1596.80, 5000.00],
                      [ 4.21489896E+00,  2.18260820E-04,  5.15723693E-07,
-                      -1.20813854E-10,  8.35430932E-15, -3.02725797E+03,
+                      -1.20813854E-10,  8.35430932E-15, -2.43542815E+03,
                       -2.36259664E+01])))
 
 species(name='CX(29)',
         atoms='C:1 X:1',
         thermo=(NASA([100.00, 1401.15],
                      [-6.04854751E-01,  1.10908100E-02, -1.34368951E-05,
-                       7.18231711E-09, -1.40682933E-12,  8.35681349E+03,
+                       7.18231711E-09, -1.40682933E-12,  9.14591991E+03,
                        1.48479417E+00]),
                 NASA([1401.15, 5000.00],
                      [ 3.08072047E+00, -6.87405372E-04,  5.17558053E-07,
-                      -9.72952765E-11,  6.24189569E-15,  7.44735855E+03,
+                      -9.72952765E-11,  6.24189569E-15,  8.23646498E+03,
                       -1.70989087E+01])))
 
 species(name='H2X(30)',
@@ -487,11 +487,11 @@ species(name='OHX(31)',
         atoms='H:1 O:1 X:1',
         thermo=(NASA([100.00, 914.58],
                      [-1.29514698E+00,  3.36477486E-02, -7.07722520E-05,
-                       6.54321668E-08, -2.19413208E-11, -2.52885681E+04,
+                       6.54321668E-08, -2.19413208E-11, -2.46503202E+04,
                        4.37628387E+00]),
                 NASA([914.58, 5000.00],
                      [ 2.43518590E+00,  4.64640063E-03, -2.40011240E-06,
-                       4.26408546E-10, -2.60655383E-14, -2.54403298E+04,
+                       4.26408546E-10, -2.60655383E-14, -2.48020820E+04,
                       -1.03866667E+01])))
 
 species(name='H2OX(32)',
@@ -509,11 +509,11 @@ species(name='CHOX(33)',
         atoms='C:1 H:1 O:1 X:1',
         thermo=(NASA([100.00, 873.21],
                      [-1.43681126E+00,  3.69245510E-02, -7.17912045E-05,
-                       6.73543951E-08, -2.35183663E-11, -2.71571322E+04,
+                       6.73543951E-08, -2.35183663E-11, -2.69598556E+04,
                        8.27567390E+00]),
                 NASA([873.21, 5000.00],
                      [ 1.83283901E+00,  1.00778087E-02, -5.28529296E-06,
-                       1.01351021E-09, -6.85176017E-14, -2.72756379E+04,
+                       1.01351021E-09, -6.85176017E-14, -2.70783613E+04,
                       -4.46412817E+00])))
 
 species(name='CH2OX(56)',
@@ -531,33 +531,33 @@ species(name='CH3OX(60)',
         atoms='C:1 H:3 O:1 X:1',
         thermo=(NASA([100.00, 857.66],
                      [-1.68422476E+00,  4.28023961E-02, -7.50784539E-05,
-                       7.03683588E-08, -2.50920639E-11, -2.59568891E+04,
+                       7.03683588E-08, -2.50920639E-11, -2.53186413E+04,
                        7.76424217E+00]),
                 NASA([857.66, 5000.00],
                      [ 1.14794358E+00,  1.71344709E-02, -8.39641041E-06,
-                       1.59808581E-09, -1.08976215E-13, -2.59844619E+04,
+                       1.59808581E-09, -1.08976215E-13, -2.53462141E+04,
                       -2.79303859E+00])))
 
 species(name='CHOX(231)',
         atoms='C:1 H:1 O:1 X:1',
         thermo=(NASA([100.00, 878.73],
                      [-1.56648010E+00,  3.83561333E-02, -7.06870104E-05,
-                       6.19520072E-08, -2.04278552E-11, -2.91549503E+04,
+                       6.19520072E-08, -2.04278552E-11, -2.85631205E+04,
                        5.18251030E+00]),
                 NASA([878.73, 5000.00],
                      [ 3.55134312E+00,  7.05349820E-03, -3.58660630E-06,
-                       6.76582745E-10, -4.51248093E-14, -2.97452798E+04,
+                       6.76582745E-10, -4.51248093E-14, -2.91534500E+04,
                       -1.70875842E+01])))
 
 species(name='C2H3X(241)',
         atoms='C:2 H:3 X:1',
         thermo=(NASA([100.00, 808.66],
                      [-1.45265162E+00,  3.42707179E-02, -4.40842650E-05,
-                       3.22607928E-08, -9.67625542E-12, -9.49075393E+03,
+                       3.22607928E-08, -9.67625542E-12, -8.89892412E+03,
                        5.13282792E+00]),
                 NASA([808.66, 5000.00],
                      [ 2.64802812E+00,  1.39871189E-02, -6.46022334E-06,
-                       1.24353788E-09, -8.72725994E-14, -1.01539725E+04,
+                       1.24353788E-09, -8.72725994E-14, -9.56214268E+03,
                       -1.37797384E+01])))
 
 #-------------------------------------------------------------------------------
@@ -1168,10 +1168,10 @@ surface_reaction('X(1) + X(1) + CO2(4) <=> OX(25) + COX(23)', stick(2.000000e-02
 #  Euclidian distance = 3.0
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Adsorption_Dissociative
-#  Ea raised from 28.1 to 31.4 kJ/mol to match endothermicity of reaction.
+#  Ea raised from 33.4 to 36.7 kJ/mol to match endothermicity of reaction.
 
 # surface1 Reaction 26
-surface_reaction('X(1) + X(1) + H2O(5) <=> HX(21) + OHX(31)', stick(3.000000e-02, 0.0, 7.498),
+surface_reaction('X(1) + X(1) + H2O(5) <=> HX(21) + OHX(31)', stick(3.000000e-02, 0.0, 8.767),
                  id='surface1-26')
 #  Reaction index: Chemkin #27; RMG #93
 #  Template reaction: Surface_Adsorption_Dissociative
@@ -1179,9 +1179,10 @@ surface_reaction('X(1) + X(1) + H2O(5) <=> HX(21) + OHX(31)', stick(3.000000e-02
 #  Estimated using an average for rate rule [Adsorbate;VacantSite1;VacantSite2]
 #  Euclidian distance = 0
 #  family: Surface_Adsorption_Dissociative
+#  Ea raised from 5.0 to 5.8 kJ/mol to match endothermicity of reaction.
 
 # surface1 Reaction 27
-surface_reaction('X(1) + X(1) + C2H6(8) <=> CH3X(27) + CH3X(27)', stick(1.500000e-02, 0.0, 1.195),
+surface_reaction('X(1) + X(1) + C2H6(8) <=> CH3X(27) + CH3X(27)', stick(1.500000e-02, 0.0, 1.392),
                  id='surface1-27')
 #  Reaction index: Chemkin #28; RMG #96
 #  Template reaction: Surface_Adsorption_Dissociative
@@ -1264,7 +1265,7 @@ surface_reaction('X(1) + CHOX(33) <=> HX(21) + COX(23)', [5.784050e+20, 0.0, 2.8
 #  Euclidian distance = 2.23606797749979
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -22.7 to 0.0 kJ/mol.
+#  Ea raised from -23.5 to 0.0 kJ/mol.
 
 # surface1 Reaction 35
 surface_reaction('H2X(30) + CH3X(27) <=> HX(21) + CH4X(24)', [2.000000e+17, 0.0, 0.0],
@@ -1320,7 +1321,7 @@ surface_reaction('OX(25) + H2X(30) <=> HX(21) + OHX(31)', [4.782614e+24, -0.188,
 #  Euclidian distance = 2.23606797749979
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -30.4 to 0.0 kJ/mol.
+#  Ea raised from -33.1 to 0.0 kJ/mol.
 
 # surface1 Reaction 40
 surface_reaction('OHX(31) + H2X(30) <=> HX(21) + H2OX(32)', [2.000000e+17, 0.0, 0.0],
@@ -1451,7 +1452,7 @@ surface_reaction('CX(29) + CH4X(24) <=> CHX(28) + CH3X(27)', [4.147872e+17, 0.93
 #  Euclidian distance = 2.23606797749979
 #  Multiplied by reaction path degeneracy 4.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -7.7 to 0.0 kJ/mol.
+#  Ea raised from -9.5 to 0.0 kJ/mol.
 
 # surface1 Reaction 52
 surface_reaction('OHX(31) + CH4X(24) <=> H2OX(32) + CH3X(27)', [4.000000e+17, 0.0, 0.0],
@@ -1598,62 +1599,29 @@ surface_reaction('OX(25) + CH4X(24) <=> HX(21) + CH3OX(60)', [9.565229e+24, -0.1
 # surface1 Reaction 65
 surface_reaction('X(1) + CH3OX(60) <=> OX(25) + CH3X(27)', [6.272720e+20, 0.0, 41.325],
                  id='surface1-65')
-#  Reaction index: Chemkin #66; RMG #625
-#  Template reaction: Surface_Abstraction_vdW
-#  Flux pairs: CH4X(24), C2H3X(241); CX(29), HX(21);
-#  Estimated using template [AdsorbateVdW;*C] for rate rule [AdsorbateVdW;*$C]
-#  Euclidian distance = 1.0
-#  Multiplied by reaction path degeneracy 4.0
-#  family: Surface_Abstraction_vdW
-
-# surface1 Reaction 66
-surface_reaction('CX(29) + CH4X(24) <=> HX(21) + C2H3X(241)', [4.147872e+17, 0.937, 20.665],
-                 id='surface1-66')
-#  Reaction index: Chemkin #67; RMG #652
-#  Template reaction: Surface_Dissociation
-#  Flux pairs: C2H3X(241), CH3X(27); C2H3X(241), CX(29);
-#  Matched reaction 90 Ni_4 + C2H3X-2 <=> CX_3 + CH3X in Surface_Dissociation/training
-#  This reaction matched rate rule [Root_Sp-3Xo#1R!H_N-2R->O_N-2CHN->N_2CH->C]
-#  family: Surface_Dissociation
-#  metal: Ni
-#  facet: 111
-
-# surface1 Reaction 67
-surface_reaction('X(1) + C2H3X(241) <=> CX(29) + CH3X(27)', [1.766520e+21, 0.0, 53.916],
-                 id='surface1-67')
-#  Reaction index: Chemkin #68; RMG #721
-#  Template reaction: Surface_Abstraction
-#  Flux pairs: CH3OX(60), OX(25); CX(29), C2H3X(241);
-#  Estimated using template [C$*;Donating] for rate rule [C$*;*-O-C]
-#  Euclidian distance = 2.0
-#  family: Surface_Abstraction
-
-# surface1 Reaction 68
-surface_reaction('CX(29) + CH3OX(60) <=> OX(25) + C2H3X(241)', [2.430000e+21, -0.312, 28.418],
-                 id='surface1-68')
-#  Reaction index: Chemkin #69; RMG #98
+#  Reaction index: Chemkin #66; RMG #98
 #  Template reaction: Surface_Adsorption_vdW
 #  Flux pairs: X(1), CH2OX(56); CH2O(9), CH2OX(56);
 #  Estimated using an average for rate rule [O;VacantSite]
 #  Euclidian distance = 0
 #  family: Surface_Adsorption_vdW
 
-# surface1 Reaction 69
+# surface1 Reaction 66
 surface_reaction('X(1) + CH2O(9) <=> CH2OX(56)', stick(1.000000e-01, 0.0, 0.0),
-                 id='surface1-69')
-#  Reaction index: Chemkin #70; RMG #572
+                 id='surface1-66')
+#  Reaction index: Chemkin #67; RMG #572
 #  Template reaction: Surface_Dissociation_vdW
 #  Flux pairs: HX(21), CH2OX(56); CHOX(33), CH2OX(56);
 #  Matched reaction 30 HCO* + H* <=> CH2O* + X_4 in Surface_Dissociation_vdW/training
 #  This reaction matched rate rule [Root_N-1R!H->N_1BrCClFIOPSSi->C_Ext-1C-R_5R!H->O_2R->H_N-Sp-5O-1C]
 #  family: Surface_Dissociation_vdW
 #  metal: Cu
-#  Ea raised from 45.3 to 66.8 kJ/mol to match endothermicity of reaction.
+#  Ea raised from 45.3 to 65.2 kJ/mol to match endothermicity of reaction.
 
-# surface1 Reaction 70
-surface_reaction('HX(21) + CHOX(33) <=> X(1) + CH2OX(56)', [1.932000e+21, 0.0, 15.968],
-                 id='surface1-70')
-#  Reaction index: Chemkin #71; RMG #628
+# surface1 Reaction 67
+surface_reaction('HX(21) + CHOX(33) <=> X(1) + CH2OX(56)', [1.932000e+21, 0.0, 15.576],
+                 id='surface1-67')
+#  Reaction index: Chemkin #68; RMG #628
 #  Template reaction: Surface_Abstraction_Single_vdW
 #  Flux pairs: CH2OX(56), CHOX(33); CH3X(27), CH4X(24);
 #  Estimated using template [Donating;Abstracting] for rate rule [C-R;*C-3R]
@@ -1662,10 +1630,10 @@ surface_reaction('HX(21) + CHOX(33) <=> X(1) + CH2OX(56)', [1.932000e+21, 0.0, 1
 #  family: Surface_Abstraction_Single_vdW
 #  Ea raised from -50.2 to 0.0 kJ/mol.
 
-# surface1 Reaction 71
+# surface1 Reaction 68
 surface_reaction('CH2OX(56) + CH3X(27) <=> CHOX(33) + CH4X(24)', [2.000000e+17, 0.0, 0.0],
-                 id='surface1-71')
-#  Reaction index: Chemkin #72; RMG #632
+                 id='surface1-68')
+#  Reaction index: Chemkin #69; RMG #632
 #  Template reaction: Surface_Dissociation_Double_vdW
 #  Flux pairs: CH2OX(56), CH2X(26); CH2OX(56), OX(25);
 #  From training reaction 35 used for OC;VacantSite
@@ -1673,10 +1641,10 @@ surface_reaction('CH2OX(56) + CH3X(27) <=> CHOX(33) + CH4X(24)', [2.000000e+17, 
 #  Euclidian distance = 0
 #  family: Surface_Dissociation_Double_vdW
 
-# surface1 Reaction 72
+# surface1 Reaction 69
 surface_reaction('X(1) + CH2OX(56) <=> OX(25) + CH2X(26)', [1.641000e+20, 0.0, 57.651],
-                 id='surface1-72')
-#  Reaction index: Chemkin #73; RMG #648
+                 id='surface1-69')
+#  Reaction index: Chemkin #70; RMG #648
 #  Template reaction: Surface_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CHOX(33); CHX(28), CH2X(26);
 #  Estimated using template [AdsorbateVdW;*C] for rate rule [C-R;*#CH]
@@ -1684,10 +1652,10 @@ surface_reaction('X(1) + CH2OX(56) <=> OX(25) + CH2X(26)', [1.641000e+20, 0.0, 5
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_vdW
 
-# surface1 Reaction 73
+# surface1 Reaction 70
 surface_reaction('CHX(28) + CH2OX(56) <=> CHOX(33) + CH2X(26)', [2.073936e+17, 0.937, 20.665],
-                 id='surface1-73')
-#  Reaction index: Chemkin #74; RMG #656
+                 id='surface1-70')
+#  Reaction index: Chemkin #71; RMG #656
 #  Template reaction: Surface_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CHOX(33); CH2X(26), CH3X(27);
 #  Estimated using template [AdsorbateVdW;*=C] for rate rule [C-R;*=C-2R]
@@ -1695,10 +1663,10 @@ surface_reaction('CHX(28) + CH2OX(56) <=> CHOX(33) + CH2X(26)', [2.073936e+17, 0
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_vdW
 
-# surface1 Reaction 74
+# surface1 Reaction 71
 surface_reaction('CH2X(26) + CH2OX(56) <=> CHOX(33) + CH3X(27)', [2.073936e+17, 0.937, 20.665],
-                 id='surface1-74')
-#  Reaction index: Chemkin #75; RMG #663
+                 id='surface1-71')
+#  Reaction index: Chemkin #72; RMG #663
 #  Template reaction: Surface_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CHOX(33); CX(29), CHX(28);
 #  Estimated using template [AdsorbateVdW;*C] for rate rule [C-R;*$C]
@@ -1706,22 +1674,22 @@ surface_reaction('CH2X(26) + CH2OX(56) <=> CHOX(33) + CH3X(27)', [2.073936e+17, 
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_vdW
 
-# surface1 Reaction 75
+# surface1 Reaction 72
 surface_reaction('CX(29) + CH2OX(56) <=> CHX(28) + CHOX(33)', [2.073936e+17, 0.937, 20.665],
-                 id='surface1-75')
-#  Reaction index: Chemkin #76; RMG #668
+                 id='surface1-72')
+#  Reaction index: Chemkin #73; RMG #668
 #  Template reaction: Surface_Abstraction_Single_vdW
 #  Flux pairs: CH2OX(56), CHOX(33); HX(21), H2X(30);
 #  Estimated using template [Donating;Abstracting] for rate rule [C-R;Abstracting]
 #  Euclidian distance = 1.0
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -27.5 to 0.0 kJ/mol.
+#  Ea raised from -26.7 to 0.0 kJ/mol.
 
-# surface1 Reaction 76
+# surface1 Reaction 73
 surface_reaction('HX(21) + CH2OX(56) <=> H2X(30) + CHOX(33)', [2.000000e+17, 0.0, 0.0],
-                 id='surface1-76')
-#  Reaction index: Chemkin #77; RMG #672
+                 id='surface1-73')
+#  Reaction index: Chemkin #74; RMG #672
 #  Template reaction: Surface_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CHOX(33); OX(25), OHX(31);
 #  From training reaction 21 used for C-R;*=O
@@ -1730,22 +1698,22 @@ surface_reaction('HX(21) + CH2OX(56) <=> H2X(30) + CHOX(33)', [2.000000e+17, 0.0
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_vdW
 
-# surface1 Reaction 77
+# surface1 Reaction 74
 surface_reaction('OX(25) + CH2OX(56) <=> OHX(31) + CHOX(33)', [2.810000e+24, -0.101, 22.156],
-                 id='surface1-77')
-#  Reaction index: Chemkin #78; RMG #677
+                 id='surface1-74')
+#  Reaction index: Chemkin #75; RMG #677
 #  Template reaction: Surface_Abstraction_Single_vdW
 #  Flux pairs: CH2OX(56), CHOX(33); OHX(31), H2OX(32);
 #  Estimated using template [Donating;Abstracting] for rate rule [C-R;*O-H]
 #  Euclidian distance = 2.23606797749979
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_Single_vdW
-#  Ea raised from -57.9 to 0.0 kJ/mol.
+#  Ea raised from -59.8 to 0.0 kJ/mol.
 
-# surface1 Reaction 78
+# surface1 Reaction 75
 surface_reaction('OHX(31) + CH2OX(56) <=> H2OX(32) + CHOX(33)', [2.000000e+17, 0.0, 0.0],
-                 id='surface1-78')
-#  Reaction index: Chemkin #79; RMG #679
+                 id='surface1-75')
+#  Reaction index: Chemkin #76; RMG #679
 #  Template reaction: Surface_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CHOX(33); COX(23), CHOX(33);
 #  Estimated using template [AdsorbateVdW;*=C=R] for rate rule [C-R;*=C=R]
@@ -1753,10 +1721,10 @@ surface_reaction('OHX(31) + CH2OX(56) <=> H2OX(32) + CHOX(33)', [2.000000e+17, 0
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_vdW
 
-# surface1 Reaction 79
+# surface1 Reaction 76
 surface_reaction('COX(23) + CH2OX(56) <=> CHOX(33) + CHOX(33)', [2.073936e+17, 0.937, 20.665],
-                 id='surface1-79')
-#  Reaction index: Chemkin #80; RMG #685
+                 id='surface1-76')
+#  Reaction index: Chemkin #77; RMG #685
 #  Template reaction: Surface_Addition_Single_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); HX(21), CH3OX(60);
 #  Matched reaction 24 CH2O* + H* <=> CH3O_1* + X_5 in Surface_Addition_Single_vdW/training
@@ -1764,10 +1732,10 @@ surface_reaction('COX(23) + CH2OX(56) <=> CHOX(33) + CHOX(33)', [2.073936e+17, 0
 #  family: Surface_Addition_Single_vdW
 #  metal: Cu
 
-# surface1 Reaction 80
+# surface1 Reaction 77
 surface_reaction('HX(21) + CH2OX(56) <=> X(1) + CH3OX(60)', [6.167000e+21, 0.0, 5.535],
-                 id='surface1-80')
-#  Reaction index: Chemkin #81; RMG #694
+                 id='surface1-77')
+#  Reaction index: Chemkin #78; RMG #694
 #  Template reaction: Surface_Dual_Adsorption_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); H2X(30), HX(21);
 #  Estimated using template [Adsorbate1;Adsorbate2] for rate rule [O=C;H-H]
@@ -1775,10 +1743,10 @@ surface_reaction('HX(21) + CH2OX(56) <=> X(1) + CH3OX(60)', [6.167000e+21, 0.0, 
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Dual_Adsorption_vdW
 
-# surface1 Reaction 81
+# surface1 Reaction 78
 surface_reaction('H2X(30) + CH2OX(56) <=> HX(21) + CH3OX(60)', [4.061465e+13, 1.299, 40.315],
-                 id='surface1-81')
-#  Reaction index: Chemkin #82; RMG #700
+                 id='surface1-78')
+#  Reaction index: Chemkin #79; RMG #700
 #  Template reaction: Surface_Adsorption_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); CHOX(33), COX(23);
 #  Matched reaction 44 CH2O* + HCO* <=> CH3O* + CO* in Surface_Adsorption_Abstraction_vdW/training
@@ -1786,20 +1754,20 @@ surface_reaction('H2X(30) + CH2OX(56) <=> HX(21) + CH3OX(60)', [4.061465e+13, 1.
 #  family: Surface_Adsorption_Abstraction_vdW
 #  metal: Cu
 
-# surface1 Reaction 82
+# surface1 Reaction 79
 surface_reaction('CHOX(33) + CH2OX(56) <=> COX(23) + CH3OX(60)', [3.398000e+21, 0.0, 0.0],
-                 id='surface1-82')
-#  Reaction index: Chemkin #83; RMG #705
+                 id='surface1-79')
+#  Reaction index: Chemkin #80; RMG #705
 #  Template reaction: Surface_Adsorption_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); OHX(31), OX(25);
 #  Estimated using template [O=C;Adsorbate1] for rate rule [O=C;*O-R]
 #  Euclidian distance = 1.0
 #  family: Surface_Adsorption_Abstraction_vdW
 
-# surface1 Reaction 83
+# surface1 Reaction 80
 surface_reaction('OHX(31) + CH2OX(56) <=> OX(25) + CH3OX(60)', [1.814000e+20, 0.0, 9.685],
-                 id='surface1-83')
-#  Reaction index: Chemkin #84; RMG #709
+                 id='surface1-80')
+#  Reaction index: Chemkin #81; RMG #709
 #  Template reaction: Surface_Adsorption_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); CH3X(27), CH2X(26);
 #  From training reaction 43 used for O=C;*C-H
@@ -1808,10 +1776,10 @@ surface_reaction('OHX(31) + CH2OX(56) <=> OX(25) + CH3OX(60)', [1.814000e+20, 0.
 #  Multiplied by reaction path degeneracy 3.0
 #  family: Surface_Adsorption_Abstraction_vdW
 
-# surface1 Reaction 84
+# surface1 Reaction 81
 surface_reaction('CH2OX(56) + CH3X(27) <=> CH2X(26) + CH3OX(60)', [5.442000e+20, 0.0, 9.685],
-                 id='surface1-84')
-#  Reaction index: Chemkin #85; RMG #716
+                 id='surface1-81')
+#  Reaction index: Chemkin #82; RMG #716
 #  Template reaction: Surface_Dual_Adsorption_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); CH4X(24), CH3X(27);
 #  Estimated using template [Adsorbate1;Adsorbate2] for rate rule [O=C;C-R]
@@ -1819,10 +1787,10 @@ surface_reaction('CH2OX(56) + CH3X(27) <=> CH2X(26) + CH3OX(60)', [5.442000e+20,
 #  Multiplied by reaction path degeneracy 4.0
 #  family: Surface_Dual_Adsorption_vdW
 
-# surface1 Reaction 85
+# surface1 Reaction 82
 surface_reaction('CH2OX(56) + CH4X(24) <=> CH3X(27) + CH3OX(60)', [8.122929e+13, 1.299, 40.315],
-                 id='surface1-85')
-#  Reaction index: Chemkin #86; RMG #719
+                 id='surface1-82')
+#  Reaction index: Chemkin #83; RMG #719
 #  Template reaction: Surface_Adsorption_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); CH2X(26), CHX(28);
 #  Estimated using an average for rate rule [O=C;*C-R]
@@ -1830,20 +1798,21 @@ surface_reaction('CH2OX(56) + CH4X(24) <=> CH3X(27) + CH3OX(60)', [8.122929e+13,
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Adsorption_Abstraction_vdW
 
-# surface1 Reaction 86
+# surface1 Reaction 83
 surface_reaction('CH2X(26) + CH2OX(56) <=> CHX(28) + CH3OX(60)', [3.628000e+20, 0.0, 9.685],
-                 id='surface1-86')
-#  Reaction index: Chemkin #87; RMG #722
+                 id='surface1-83')
+#  Reaction index: Chemkin #84; RMG #722
 #  Template reaction: Surface_Adsorption_Abstraction_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); CHX(28), CX(29);
 #  Estimated using an average for rate rule [O=C;*C-R]
 #  Euclidian distance = 0
 #  family: Surface_Adsorption_Abstraction_vdW
+#  Ea raised from 44.0 to 44.2 kJ/mol to match endothermicity of reaction.
 
-# surface1 Reaction 87
-surface_reaction('CHX(28) + CH2OX(56) <=> CX(29) + CH3OX(60)', [1.814000e+20, 0.0, 9.685],
-                 id='surface1-87')
-#  Reaction index: Chemkin #88; RMG #729
+# surface1 Reaction 84
+surface_reaction('CHX(28) + CH2OX(56) <=> CX(29) + CH3OX(60)', [1.814000e+20, 0.0, 10.553],
+                 id='surface1-84')
+#  Reaction index: Chemkin #85; RMG #729
 #  Template reaction: Surface_Dual_Adsorption_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); H2OX(32), OHX(31);
 #  Estimated using template [Adsorbate1;O-R] for rate rule [O=C;O-R]
@@ -1851,10 +1820,10 @@ surface_reaction('CHX(28) + CH2OX(56) <=> CX(29) + CH3OX(60)', [1.814000e+20, 0.
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Dual_Adsorption_vdW
 
-# surface1 Reaction 88
+# surface1 Reaction 85
 surface_reaction('H2OX(32) + CH2OX(56) <=> OHX(31) + CH3OX(60)', [4.061465e+13, 1.299, 40.315],
-                 id='surface1-88')
-#  Reaction index: Chemkin #89; RMG #738
+                 id='surface1-85')
+#  Reaction index: Chemkin #86; RMG #738
 #  Template reaction: Surface_Dual_Adsorption_vdW
 #  Flux pairs: CH2OX(56), CH3OX(60); CH2OX(56), CHOX(33);
 #  Estimated using template [Adsorbate1;Adsorbate2] for rate rule [O=C;C-R]
@@ -1862,30 +1831,10 @@ surface_reaction('H2OX(32) + CH2OX(56) <=> OHX(31) + CH3OX(60)', [4.061465e+13, 
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Dual_Adsorption_vdW
 
-# surface1 Reaction 89
+# surface1 Reaction 86
 surface_reaction('CH2OX(56) + CH2OX(56) <=> CHOX(33) + CH3OX(60)', [4.061465e+13, 1.299, 40.315],
-                 id='surface1-89')
-#  Reaction index: Chemkin #90; RMG #815
-#  Template reaction: Surface_Adsorption_Dissociative
-#  Flux pairs: C2H4(52), CH3X(27); X(1), CHX(28); X(1), CHX(28);
-#  Estimated using an average for rate rule [Adsorbate;VacantSite1;VacantSite2]
-#  Euclidian distance = 0
-#  family: Surface_Adsorption_Dissociative
-
-# surface1 Reaction 90
-surface_reaction('X(1) + X(1) + C2H4(52) <=> CHX(28) + CH3X(27)', stick(1.500000e-02, 0.0, 1.195),
-                 id='surface1-90')
-#  Reaction index: Chemkin #91; RMG #817
-#  Template reaction: Surface_Adsorption_Dissociative
-#  Flux pairs: C2H4(52), C2H3X(241); X(1), HX(21); X(1), HX(21);
-#  Estimated using an average for rate rule [Adsorbate;VacantSite1;VacantSite2]
-#  Euclidian distance = 0
-#  family: Surface_Adsorption_Dissociative
-
-# surface1 Reaction 91
-surface_reaction('X(1) + X(1) + C2H4(52) <=> HX(21) + C2H3X(241)', stick(1.500000e-02, 0.0, 1.195),
-                 id='surface1-91')
-#  Reaction index: Chemkin #92; RMG #563
+                 id='surface1-86')
+#  Reaction index: Chemkin #87; RMG #563
 #  Template reaction: Surface_Dissociation_Beta
 #  Flux pairs: CHOX(231), HX(21); CHOX(231), COX(23);
 #  Matched reaction 30 Cu + COH* <=> CO* + H* in Surface_Dissociation_Beta/training
@@ -1894,10 +1843,10 @@ surface_reaction('X(1) + X(1) + C2H4(52) <=> HX(21) + C2H3X(241)', stick(1.50000
 #  metal: Cu
 #  facet: 211
 
-# surface1 Reaction 92
+# surface1 Reaction 87
 surface_reaction('X(1) + CHOX(231) <=> HX(21) + COX(23)', [8.822940e+20, 0.0, 16.986],
-                 id='surface1-92')
-#  Reaction index: Chemkin #93; RMG #665
+                 id='surface1-87')
+#  Reaction index: Chemkin #88; RMG #665
 #  Template reaction: Surface_Dissociation
 #  Flux pairs: CHOX(231), OHX(31); CHOX(231), CX(29);
 #  Matched reaction 191 Ni_4 + CHOX-2 <=> CX_3 + HOX_5 in Surface_Dissociation/training
@@ -1906,10 +1855,10 @@ surface_reaction('X(1) + CHOX(231) <=> HX(21) + COX(23)', [8.822940e+20, 0.0, 16
 #  metal: Rh
 #  facet: 111
 
-# surface1 Reaction 93
+# surface1 Reaction 88
 surface_reaction('X(1) + CHOX(231) <=> OHX(31) + CX(29)', [8.822940e+20, 0.0, 28.01],
-                 id='surface1-93')
-#  Reaction index: Chemkin #94; RMG #666
+                 id='surface1-88')
+#  Reaction index: Chemkin #89; RMG #666
 #  Template reaction: Surface_Abstraction_vdW
 #  Flux pairs: CX(29), CHOX(231); H2OX(32), HX(21);
 #  Estimated using template [AdsorbateVdW;*C] for rate rule [AdsorbateVdW;*$C]
@@ -1917,6 +1866,59 @@ surface_reaction('X(1) + CHOX(231) <=> OHX(31) + CX(29)', [8.822940e+20, 0.0, 28
 #  Multiplied by reaction path degeneracy 2.0
 #  family: Surface_Abstraction_vdW
 
-# surface1 Reaction 94
+# surface1 Reaction 89
 surface_reaction('H2OX(32) + CX(29) <=> HX(21) + CHOX(231)', [2.073936e+17, 0.937, 20.665],
+                 id='surface1-89')
+#  Reaction index: Chemkin #90; RMG #625
+#  Template reaction: Surface_Abstraction_vdW
+#  Flux pairs: CH4X(24), C2H3X(241); CX(29), HX(21);
+#  Estimated using template [AdsorbateVdW;*C] for rate rule [AdsorbateVdW;*$C]
+#  Euclidian distance = 1.0
+#  Multiplied by reaction path degeneracy 4.0
+#  family: Surface_Abstraction_vdW
+
+# surface1 Reaction 90
+surface_reaction('CX(29) + CH4X(24) <=> HX(21) + C2H3X(241)', [4.147872e+17, 0.937, 20.665],
+                 id='surface1-90')
+#  Reaction index: Chemkin #91; RMG #652
+#  Template reaction: Surface_Dissociation
+#  Flux pairs: C2H3X(241), CH3X(27); C2H3X(241), CX(29);
+#  Matched reaction 90 Ni_4 + C2H3X-2 <=> CX_3 + CH3X in Surface_Dissociation/training
+#  This reaction matched rate rule [Root_Sp-3Xo#1R!H_N-2R->O_N-2CHN->N_2CH->C]
+#  family: Surface_Dissociation
+#  metal: Ni
+#  facet: 111
+
+# surface1 Reaction 91
+surface_reaction('X(1) + C2H3X(241) <=> CX(29) + CH3X(27)', [1.766520e+21, 0.0, 53.916],
+                 id='surface1-91')
+#  Reaction index: Chemkin #92; RMG #721
+#  Template reaction: Surface_Abstraction
+#  Flux pairs: CH3OX(60), OX(25); CX(29), C2H3X(241);
+#  Estimated using template [C$*;Donating] for rate rule [C$*;*-O-C]
+#  Euclidian distance = 2.0
+#  family: Surface_Abstraction
+
+# surface1 Reaction 92
+surface_reaction('CX(29) + CH3OX(60) <=> OX(25) + C2H3X(241)', [2.430000e+21, -0.312, 28.418],
+                 id='surface1-92')
+#  Reaction index: Chemkin #93; RMG #849
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: C2H4(52), CH3X(27); X(1), CHX(28); X(1), CHX(28);
+#  Estimated using an average for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 93
+surface_reaction('X(1) + X(1) + C2H4(52) <=> CHX(28) + CH3X(27)', stick(1.500000e-02, 0.0, 1.195),
+                 id='surface1-93')
+#  Reaction index: Chemkin #94; RMG #851
+#  Template reaction: Surface_Adsorption_Dissociative
+#  Flux pairs: C2H4(52), C2H3X(241); X(1), HX(21); X(1), HX(21);
+#  Estimated using an average for rate rule [Adsorbate;VacantSite1;VacantSite2]
+#  Euclidian distance = 0
+#  family: Surface_Adsorption_Dissociative
+
+# surface1 Reaction 94
+surface_reaction('X(1) + X(1) + C2H4(52) <=> HX(21) + C2H3X(241)', stick(1.500000e-02, 0.0, 1.195),
                  id='surface1-94')
