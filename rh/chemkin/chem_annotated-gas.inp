@@ -207,7 +207,7 @@ OH(17)+H2(6)=H(12)+H2O(5)                           2.160000e+08 1.510     3.430
 ! Library reaction: BurkeH2O2inArHe
 ! Flux pairs: H2O(5), H(12); H2O(5), OH(17); 
 H2O(5)+M=H(12)+OH(17)+M                             6.064e+27 -3.322    120.790  
-O2(3)/1.50/ N2/2.00/ H2(6)/3.00/ H2O(5)/0.00/ CO(7)/1.90/ CO2(4)/3.80/ 
+H2(6)/3.00/ H2O(5)/0.00/ CO(7)/1.90/ CO2(4)/3.80/ O2(3)/1.50/ N2/2.00/ 
 
 ! Reaction index: Chemkin #5; RMG #31
 ! Library reaction: BurkeH2O2inArHe

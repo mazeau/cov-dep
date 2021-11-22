@@ -2,8 +2,8 @@
 database(
     thermoLibraries=['surfaceThermoPt111', 'primaryThermoLibrary', 'thermo_DFT_CCSDTF12_BAC','DFT_QCI_thermo'],
     reactionLibraries = [
-    # ('Surface/CPOX_Pt/Deutschmann2006_adjusted', False),
-    ('Surface/Methane/Deutschmann_Pt', False),
+    ('Surface/CPOX_Pt/Deutschmann2006_adjusted', False),
+    #('Surface/Methane/Deutschmann_Pt', False),
     #('Surface/Methane/Vlachos_Pt111', False),
     'BurkeH2O2inArHe'],
     seedMechanisms = [],
@@ -20,7 +20,7 @@ catalystProperties( # default values for Rh(111)
                        'H':(-2.479, 'eV/molecule'),
                        },
     surfaceSiteDensity=(2.72e-9, 'mol/cm^2'),
-    coverageDependence=True,
+    coverageDependence=False,
 )
 
 # catalystProperties( # default values for Pt(111)
