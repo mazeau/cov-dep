@@ -56,6 +56,25 @@ def filter_outliers(data, verbose=False):
     return outliers_removed
 
 
+def calculate(data):
+    ratio, ch4_in, ch4_out, co_out, h2_out, h2o_out, co2_out, exit_T, max_T, dist_Tmax, o2_conv, max_ch4_conv, dist_50_ch4_conv = data
+
+    ch4_depletion = ch4_in - ch4_out
+    ch4_conv = ch4_depletion / ch4_in
+    h2_sel = h2_out / (ch4_depletion * 2)
+    h2_yield = h2_out / ( ch4_in * 2)
+    co_sel = co_out / ch4_depletion
+    co_yield = co_out / ch4_in
+    syngas_sel = co_sel + h2_sel
+    syngas_yield = syngas_sel * ch4_conv
+    co2_sel = co2_out / ch4_depletion
+    h2o_sel = h2o_out / (2 * ch4_depletion)
+    fullox_sel = h2o_sel + co2_sel
+    fullox_yield = fullox_sel * ch4_conv
+
+    return ratio, syngas_sel, syngas_yield, co_sel, co_yield, h2_sel, h2_yield, ch4_conv, fullox_sel, fullox_yield, exit_T, max_T, dist_Tmax, o2_conv
+
+
 def average_data(data, type='avg', verbose=False):
     """
     Average raw simulation data together, without checking for outliers.
@@ -81,10 +100,11 @@ def average_data(data, type='avg', verbose=False):
 
             if s is 1:
                 avg = round(avg,1)
+                var = round(avg,1)
 
             fixed_data.append(avg)
             var_data.append(var)
-        out.append(fixed_data)
+        out.append(list(calculate(fixed_data)))
         out_var.append(var_data)
 
     if type is 'avg':
@@ -103,8 +123,15 @@ def loadWorker(f_location):
     data_var = average_data(data_filter, type='var')
 
     k = (pd.DataFrame.from_dict(data=data_avg, orient='columns'))
-    k.columns = ['C/O ratio', 'CH4 in', 'CH4 out', 'CO out', 'H2 out', 'H2O out', 'CO2 out', 'Exit temp', 'Max temp', 'Dist to max temp', 'O2 conv', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
+    k.columns = ['C/O ratio', 'SynGasSelec', 'SynGasYield', 'COSelec', 'COYield','H2Selec',
+                  'H2Yield', 'CH4Conv', 'FullOxSelec', 'FullOxYield', 'ExitT',
+                  'MaxT', 'DistToMaxT', 'O2Conv']
+    # k.columns = ['C/O ratio', 'CH4 in', 'CH4 out', 'CO out', 'H2 out', 'H2O out', 'CO2 out', 'Exit temp', 'Max temp', 'Dist to max temp', 'O2 conv', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
     k.to_csv(f_location + '/avgdata.csv', header=True)
+
+    # k = (pd.DataFrame.from_dict(data=data_var, orient='columns'))
+    # k.columns = ['C/O ratio', 'CH4 in', 'CH4 out', 'CO out', 'H2 out', 'H2O out', 'CO2 out', 'Exit temp', 'Max temp', 'Dist to max temp', 'O2 conv', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
+    # k.to_csv(f_location + '/vardata.csv', header=True)
 
 
 def import_sensitivities(input, file_location):
@@ -148,6 +175,7 @@ def average_sensitivities(data, type='avg'):
 
             if s is 1:
                 fixed_data.append(data[t][r][s])
+                var_data.append(data[t][r][s])
             else:
                 new_data = filter_outliers(tmp_list)
                 avg = statistics.mean(new_data)
@@ -183,6 +211,12 @@ def loadSensDataWorker(f_location):
                      'CH4 Conversion', 'H2O+CO2 Selectivity', 'H2O+CO2 yield', 'Exit Temp', 'Peak Temp',
                      'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
         k.to_csv(f_location + '/avg-sensitivities/{:.1f}avgRxnSensitivity.csv'.format(ratio), header=True)  # raw data
+
+        k = (pd.DataFrame.from_dict(data=sensdata, orient='columns'))
+        k.columns = ['Reaction', 'SYNGAS Selec', 'SYNGAS Yield', 'CO Selectivity', 'CO % Yield', 'H2 Selectivity', 'H2 % Yield',
+                     'CH4 Conversion', 'H2O+CO2 Selectivity', 'H2O+CO2 yield', 'Exit Temp', 'Peak Temp',
+                     'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
+        k.to_csv(f_location + '/avg-sensitivities/{:.1f}varRxnSensitivity.csv'.format(ratio), header=True)  # raw data
 
 
 num_threads = len(ratios)

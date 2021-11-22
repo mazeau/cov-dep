@@ -91,26 +91,7 @@ hoffman_energies = { # Carbon, then Oxygen
 }
 
 
-def calculate(data):
-    index, ratio, ch4_in, ch4_out, co_out, h2_out, h2o_out, co2_out, exit_T, max_T, dist_Tmax, o2_conv, max_ch4_conv, dist_50_ch4_conv = data
-
-    ch4_depletion = ch4_in - ch4_out
-    ch4_conv = ch4_depletion / ch4_in
-    h2_sel = h2_out / (ch4_depletion * 2)
-    h2_yield = h2_out / ( ch4_in * 2)
-    co_sel = co_out / ch4_depletion
-    co_yield = co_out / ch4_in
-    syngas_sel = co_sel + h2_sel
-    syngas_yield = syngas_sel * ch4_conv
-    co2_sel = co2_out / ch4_depletion
-    h2o_sel = h2o_out / (2 * ch4_depletion)
-    fullox_sel = h2o_sel + co2_sel
-    fullox_yield = fullox_sel * ch4_conv
-
-    return syngas_sel, syngas_yield, co_sel, co_yield, h2_sel, h2_yield, ch4_conv, fullox_sel, fullox_yield, exit_T, max_T, dist_Tmax, o2_conv
-
-
-def import_data(ratio, f_location):
+def import_data(f_location):
     """
     This imports data from the original simulation
     """
@@ -119,10 +100,11 @@ def import_data(ratio, f_location):
     data = data.values
     data = data.tolist()
 
-    for x in data:
-        if x[1] == ratio:
-            calculated_data = calculate(x)
-            return list(calculated_data)
+    # remove index row
+    for row in data:
+        del row[1]
+
+    return data
 
 
 def lavaPlot(overall_rate, title, axis=False, folder=False, interpolation=True):
@@ -180,7 +162,7 @@ def lavaPlot(overall_rate, title, axis=False, folder=False, interpolation=True):
     else:
         os.path.exists(out_dir + '/' + str(folder)) or os.makedirs(out_dir + '/' + str(folder))
         plt.savefig(out_dir + '/' + str(folder) + '/' + str(title) +'.pdf', bbox_inches='tight')
-    plt.show()
+    # plt.show()
     plt.clf()
 
 
@@ -275,24 +257,27 @@ sens_types = ['SynGasSelec', 'SynGasYield', 'COSelec', 'COYield', 'H2Selec',
               'MaxT', 'DistToMaxT', 'O2Conv']
 
 
-def loadWorker(ratio):
-    data = []
-
-    array = os.listdir('small-grid/')
-    array = sorted(array)
-    files = ['./small-grid/' + x for x in array]
-
-    for f in files:
-        data.append(import_data(ratio, f))
-
+def loadWorker(f_location):
+    data = import_data(f_location)
     return data
 
 
 num_threads = len(ratios)
 pool = multiprocessing.Pool(processes=num_threads)
-all_data = pool.map(loadWorker, ratios, 1)
+all_data = pool.map(loadWorker, files, 1)
 pool.close()
 pool.join()
+
+
+reordered_data = []
+for r in range(len(all_data[0])):
+    tmp = []
+    for b in range(len(all_data)):
+        tmp.append(all_data[b][r])
+    reordered_data.append(tmp)
+
+all_data = reordered_data  # rename to what it was before
+
 
 def spansWorker(sens):
     all_sens_data = []
@@ -309,10 +294,10 @@ def spansWorker(sens):
 
 def basePlotWorker(ratio):
     # plots without interpolation
-    for s in range(len(all_data[ratio][0])):
+    for s in range(len(sens_types)):
         data_to_plot = []
         for x in range(len(all_data[ratio])):
-            data_to_plot.append(all_data[ratio][x][s])
+            data_to_plot.append(all_data[ratio][x][s+2])
         title = sens_types[s] + str(ratios_title[ratio])
         lavaPlot(data_to_plot, title, axis=spans[s], folder='base', interpolation=False)
 
@@ -337,27 +322,46 @@ pool.join()
 
 ratios_index = list(range(len(ratios)))
 
-if max_cpus >= 28:
-    num_threads = 28
-    lump = 1
-else:
-    num_threads = max_cpus
-    lump = int(28./max_cpus)
-pool = multiprocessing.Pool(processes=num_threads)
-pool.map_async(basePlotWorker, ratios_index)
-pool.map_async(baseAnimateWorker, sens_index)
-pool.close()
-pool.join()
+# if max_cpus >= 28:
+#     num_threads = 28
+#     lump = 1
+# else:
+#     num_threads = max_cpus
+#     lump = int(28./max_cpus)
+# pool = multiprocessing.Pool(processes=num_threads)
+# pool.map_async(basePlotWorker, ratios_index)
+# pool.map_async(baseAnimateWorker, sens_index)
+# pool.close()
+# pool.join()
 
 # pool = multiprocessing.Pool(processes=15)
 # t = pool.map(basePlotWorker, ratios_index, 1)
 # pool.close()
 # pool.join()
-#
+
 # pool = multiprocessing.Pool(processes=15)
 # pool.map(baseAnimateWorker, sens_index, 1)
 # pool.close()
 # pool.join()
+
+
+# for ratio in ratios_index:
+#     for s in range(len(sens_types)):
+#         data_to_plot = []
+#         for x in range(len(all_data[ratio])):
+#             data_to_plot.append(all_data[ratio][x][s+1])
+#         title = sens_types[s] + str(ratios_title[ratio])
+#         lavaPlot(data_to_plot, title, axis=spans[s], folder='base', interpolation=False)
+#
+# for sens in sens_index:
+#     data_to_plot = []
+#     for ratio in range(len(all_data)):
+#         tmp = []
+#         for metal in range(len(all_data[0])):
+#             tmp.append(all_data[ratio][metal][sens])
+#         data_to_plot.append(tmp)
+#     title = sens_types[sens]
+#     lavaPlotAnimate(data_to_plot, title, spans[sens], folder='base-animate', interpolation=False)
 
 
 def import_sensitivities(ratio, file_location, avg='avg'):
@@ -400,7 +404,6 @@ for f in range(len(allrxndata)):  # for each lsr binding energy
         reactions.add(allrxndata[f][6][r][1])  # append the reaction itself
 reactions = list(reactions)
 
-sys.exit()
 
 def sensPlot(overall_rate, title, axis=False, folder=False):
     """
@@ -450,7 +453,7 @@ def sensPlot(overall_rate, title, axis=False, folder=False):
     else:
         os.path.exists(out_dir + '/' + str(folder)) or os.makedirs(out_dir + '/' + str(folder))
         plt.savefig(out_dir + '/' + str(folder) + '/' + str(title) +'.pdf', bbox_inches='tight')
-    plt.show()
+    # plt.show()
     plt.clf()
 
 
@@ -581,6 +584,7 @@ pool = multiprocessing.Pool(processes=num_threads)
 sum_sens = pool.map(sensPlotWorker, input, lump)
 pool.close()
 pool.join()
+
 
 pool = multiprocessing.Pool(processes=num_threads)
 max_sens = pool.map(sensPlotAnimateWorker, input, lump)
