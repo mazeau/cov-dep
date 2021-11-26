@@ -118,20 +118,21 @@ def loadWorker(f_location):
     for t in tol_list:
         data.append(import_data(t, f_location))
 
-    data_filter = [x for x in data if x] # filter out None values
-    data_avg = average_data(data_filter, type='avg', verbose=True)
-    data_var = average_data(data_filter, type='var')
+    if not all(x is None for x in data):  # if all values aren't None
+        data_filter = [x for x in data if x] # filter out None values
+        data_avg = average_data(data_filter, type='avg', verbose=True)
+        # data_var = average_data(data_filter, type='var')
 
-    k = (pd.DataFrame.from_dict(data=data_avg, orient='columns'))
-    k.columns = ['C/O ratio', 'SynGasSelec', 'SynGasYield', 'COSelec', 'COYield','H2Selec',
-                  'H2Yield', 'CH4Conv', 'FullOxSelec', 'FullOxYield', 'ExitT',
-                  'MaxT', 'DistToMaxT', 'O2Conv']
-    # k.columns = ['C/O ratio', 'CH4 in', 'CH4 out', 'CO out', 'H2 out', 'H2O out', 'CO2 out', 'Exit temp', 'Max temp', 'Dist to max temp', 'O2 conv', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
-    k.to_csv(f_location + '/avgdata.csv', header=True)
+        k = (pd.DataFrame.from_dict(data=data_avg, orient='columns'))
+        k.columns = ['C/O ratio', 'SynGasSelec', 'SynGasYield', 'COSelec', 'COYield','H2Selec',
+                      'H2Yield', 'CH4Conv', 'FullOxSelec', 'FullOxYield', 'ExitT',
+                      'MaxT', 'DistToMaxT', 'O2Conv']
+        # k.columns = ['C/O ratio', 'CH4 in', 'CH4 out', 'CO out', 'H2 out', 'H2O out', 'CO2 out', 'Exit temp', 'Max temp', 'Dist to max temp', 'O2 conv', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
+        k.to_csv(f_location + '/avgdata.csv', header=True)
 
-    # k = (pd.DataFrame.from_dict(data=data_var, orient='columns'))
-    # k.columns = ['C/O ratio', 'CH4 in', 'CH4 out', 'CO out', 'H2 out', 'H2O out', 'CO2 out', 'Exit temp', 'Max temp', 'Dist to max temp', 'O2 conv', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
-    # k.to_csv(f_location + '/vardata.csv', header=True)
+        # k = (pd.DataFrame.from_dict(data=data_var, orient='columns'))
+        # k.columns = ['C/O ratio', 'CH4 in', 'CH4 out', 'CO out', 'H2 out', 'H2O out', 'CO2 out', 'Exit temp', 'Max temp', 'Dist to max temp', 'O2 conv', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
+        # k.to_csv(f_location + '/vardata.csv', header=True)
 
 
 def import_sensitivities(input, file_location):
@@ -194,29 +195,29 @@ def average_sensitivities(data, type='avg'):
 
 
 def loadSensDataWorker(f_location):
-    os.path.exists(f_location + '/avg-sensitivities/') or os.makedirs(f_location + '/avg-sensitivities/')
-
     for ratio in ratios:
         allsens = []
         for t in tol_list:
             i = (t, ratio)
             allsens.append(import_sensitivities(i, f_location))
 
-        allsens_filter = [x for x in allsens if x] # filter out None values
-        sensdata = average_sensitivities(allsens_filter, type='avg')
-        # sens_var.append(average_sensitivities(allsens_filter, type='var'))
+        if not all(x is None for x in allsens):  # if all values aren't None
+            os.path.exists(f_location + '/avg-sensitivities/') or os.makedirs(f_location + '/avg-sensitivities/')
+            allsens_filter = [x for x in allsens if x] # filter out None values
+            sensdata = average_sensitivities(allsens_filter, type='avg')
+            # sens_var.append(average_sensitivities(allsens_filter, type='var'))
 
-        k = (pd.DataFrame.from_dict(data=sensdata, orient='columns'))
-        k.columns = ['Reaction', 'SYNGAS Selec', 'SYNGAS Yield', 'CO Selectivity', 'CO % Yield', 'H2 Selectivity', 'H2 % Yield',
-                     'CH4 Conversion', 'H2O+CO2 Selectivity', 'H2O+CO2 yield', 'Exit Temp', 'Peak Temp',
-                     'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
-        k.to_csv(f_location + '/avg-sensitivities/{:.1f}avgRxnSensitivity.csv'.format(ratio), header=True)  # raw data
+            k = (pd.DataFrame.from_dict(data=sensdata, orient='columns'))
+            k.columns = ['Reaction', 'SYNGAS Selec', 'SYNGAS Yield', 'CO Selectivity', 'CO % Yield', 'H2 Selectivity', 'H2 % Yield',
+                         'CH4 Conversion', 'H2O+CO2 Selectivity', 'H2O+CO2 yield', 'Exit Temp', 'Peak Temp',
+                         'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
+            k.to_csv(f_location + '/avg-sensitivities/{:.1f}avgRxnSensitivity.csv'.format(ratio), header=True)  # raw data
 
-        k = (pd.DataFrame.from_dict(data=sensdata, orient='columns'))
-        k.columns = ['Reaction', 'SYNGAS Selec', 'SYNGAS Yield', 'CO Selectivity', 'CO % Yield', 'H2 Selectivity', 'H2 % Yield',
-                     'CH4 Conversion', 'H2O+CO2 Selectivity', 'H2O+CO2 yield', 'Exit Temp', 'Peak Temp',
-                     'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
-        k.to_csv(f_location + '/avg-sensitivities/{:.1f}varRxnSensitivity.csv'.format(ratio), header=True)  # raw data
+            k = (pd.DataFrame.from_dict(data=sensdata, orient='columns'))
+            k.columns = ['Reaction', 'SYNGAS Selec', 'SYNGAS Yield', 'CO Selectivity', 'CO % Yield', 'H2 Selectivity', 'H2 % Yield',
+                         'CH4 Conversion', 'H2O+CO2 Selectivity', 'H2O+CO2 yield', 'Exit Temp', 'Peak Temp',
+                         'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
+            k.to_csv(f_location + '/avg-sensitivities/{:.1f}varRxnSensitivity.csv'.format(ratio), header=True)  # raw data
 
 
 num_threads = len(ratios)
