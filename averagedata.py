@@ -205,7 +205,7 @@ def loadSensDataWorker(f_location):
             os.path.exists(f_location + '/avg-sensitivities/') or os.makedirs(f_location + '/avg-sensitivities/')
             allsens_filter = [x for x in allsens if x] # filter out None values
             sensdata = average_sensitivities(allsens_filter, type='avg')
-            # sens_var.append(average_sensitivities(allsens_filter, type='var'))
+            sens_var = append(average_sensitivities(allsens_filter, type='var'))
 
             k = (pd.DataFrame.from_dict(data=sensdata, orient='columns'))
             k.columns = ['Reaction', 'SYNGAS Selec', 'SYNGAS Yield', 'CO Selectivity', 'CO % Yield', 'H2 Selectivity', 'H2 % Yield',
@@ -213,7 +213,7 @@ def loadSensDataWorker(f_location):
                          'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
             k.to_csv(f_location + '/avg-sensitivities/{:.1f}avgRxnSensitivity.csv'.format(ratio), header=True)  # raw data
 
-            k = (pd.DataFrame.from_dict(data=sensdata, orient='columns'))
+            k = (pd.DataFrame.from_dict(data=sens_var, orient='columns'))
             k.columns = ['Reaction', 'SYNGAS Selec', 'SYNGAS Yield', 'CO Selectivity', 'CO % Yield', 'H2 Selectivity', 'H2 % Yield',
                          'CH4 Conversion', 'H2O+CO2 Selectivity', 'H2O+CO2 yield', 'Exit Temp', 'Peak Temp',
                          'Dist to peak temp', 'O2 Conversion', 'Max CH4 Conv', 'Dist to 50 CH4 Conv']
