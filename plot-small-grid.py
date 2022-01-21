@@ -102,7 +102,7 @@ def import_data(f_location):
 
     # remove index row
     for row in data:
-        del row[1]
+        del row[0]
 
     return data
 
@@ -236,19 +236,19 @@ array = sorted(array)
 files = ['./small-grid/' + x for x in array]
 # array = os.listdir('small-grid-cov/')
 # array = sorted(array)
-# allfiles = files + ['./small-grid-cov/' + x for x in array] + ['./pt_cathub/','./pt_cathub_cov/']
+# files = ['./small-grid-cov/' + x for x in array]
 
 
 # for plotting
-c_s = []
-o_s = []
-for x in array:
-    _, c, o = x.split("-")
-    c = c[:-1]
-    c = -1 *float(c)
-    o = -1* float(o)
-    c_s.append(c)
-    o_s.append(o)
+# c_s = []
+# o_s = []
+# for x in array:
+#     _, c, o = x.split("-")
+#     c = c[:-1]
+#     c = -1 *float(c)
+#     o = -1* float(o)
+#     c_s.append(c)
+#     o_s.append(o)
 
 ratios = [0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6]
 ratios_title = ['06', '07', '08', '09', '10', '11', '12', '13', '14', '16', '18', '20', '22', '24', '26']
@@ -258,7 +258,11 @@ sens_types = ['SynGasSelec', 'SynGasYield', 'COSelec', 'COYield', 'H2Selec',
 
 
 def loadWorker(f_location):
-    data = import_data(f_location)
+    try:
+        data = import_data(f_location)
+    except:
+        print(f'No values for {f_location}')
+        data = np.zeros((15,14)).tolist()
     return data
 
 
@@ -286,7 +290,7 @@ def spansWorker(sens):
             # x has len 15 and is each of the ratios
             # y has len 81 and is each of the lsr binding energies
             # the last number is the type of sensitivity definition and is 0-12
-            all_sens_data.append(all_data[x][y][sens])
+            all_sens_data.append(all_data[x][y][sens+1])
     vmax = max(all_sens_data)
     vmin = min(all_sens_data)
     return [vmin, vmax]
@@ -297,7 +301,7 @@ def basePlotWorker(ratio):
     for s in range(len(sens_types)):
         data_to_plot = []
         for x in range(len(all_data[ratio])):
-            data_to_plot.append(all_data[ratio][x][s+2])
+            data_to_plot.append(all_data[ratio][x][s+1])
         title = sens_types[s] + str(ratios_title[ratio])
         lavaPlot(data_to_plot, title, axis=spans[s], folder='base', interpolation=False)
 
@@ -308,7 +312,7 @@ def baseAnimateWorker(sens):
     for ratio in range(len(all_data)):
         tmp = []
         for metal in range(len(all_data[0])):
-            tmp.append(all_data[ratio][metal][sens])
+            tmp.append(all_data[ratio][metal][sens+1])
         data_to_plot.append(tmp)
     title = sens_types[sens]
     lavaPlotAnimate(data_to_plot, title, spans[sens], folder='base-animate', interpolation=False)
@@ -322,6 +326,8 @@ pool.join()
 
 ratios_index = list(range(len(ratios)))
 
+
+### USING MULTIPROCESSING ###
 # if max_cpus >= 28:
 #     num_threads = 28
 #     lump = 1
@@ -344,24 +350,24 @@ ratios_index = list(range(len(ratios)))
 # pool.close()
 # pool.join()
 
-
+### ONE AT A TIME ###
 # for ratio in ratios_index:
 #     for s in range(len(sens_types)):
 #         data_to_plot = []
 #         for x in range(len(all_data[ratio])):
 #             data_to_plot.append(all_data[ratio][x][s+1])
 #         title = sens_types[s] + str(ratios_title[ratio])
-#         lavaPlot(data_to_plot, title, axis=spans[s], folder='base', interpolation=False)
+#         lavaPlot(data_to_plot, title, axis=spans[s], folder='base-cov', interpolation=False)
 #
 # for sens in sens_index:
 #     data_to_plot = []
 #     for ratio in range(len(all_data)):
 #         tmp = []
 #         for metal in range(len(all_data[0])):
-#             tmp.append(all_data[ratio][metal][sens])
+#             tmp.append(all_data[ratio][metal][sens+1])
 #         data_to_plot.append(tmp)
 #     title = sens_types[sens]
-#     lavaPlotAnimate(data_to_plot, title, spans[sens], folder='base-animate', interpolation=False)
+#     lavaPlotAnimate(data_to_plot, title, spans[sens], folder='base-animate-cov', interpolation=False)
 
 
 def import_sensitivities(ratio, file_location, avg='avg'):
@@ -378,6 +384,7 @@ def import_sensitivities(ratio, file_location, avg='avg'):
         return data
     except:
         print('Cannot find ' + file_location + '/avg-sensitivities/' + str(ratio) + avg + 'RxnSensitivity.csv')
+        return np.zeros((1,14)).tolist()
 
 
 def loadSensDataWorker(f_location):
@@ -398,10 +405,14 @@ allrxndata = pool.map(loadSensDataWorker, files, lump)
 pool.close()
 pool.join()
 
+
 reactions = set()  # create list of unique reactions
 for f in range(len(allrxndata)):  # for each lsr binding energy
-    for r in range(len(allrxndata[f][6])):  # for each reaction
-        reactions.add(allrxndata[f][6][r][1])  # append the reaction itself
+    try:
+        for r in range(len(allrxndata[f][6])):  # for each reaction
+            reactions.add(allrxndata[f][6][r][1])  # append the reaction itself
+    except TypeError:
+        pass
 reactions = list(reactions)
 
 
@@ -478,7 +489,7 @@ def sensPlotWorker(input):
         STDEV = statistics.stdev(sensitivities)
         MAX = max(abs(np.array(sensitivities)))
 
-        title = rxn + ' '+ sens_types[s-2] + ' ' + str(ratios[r])
+        title = str(rxn) + ' ' + sens_types[s-2] + ' ' + str(ratios[r])
         sensPlot(sensitivities, title, folder='rxnsensitivities', axis=[-1*MAX, MAX])
         sensPlot(sensitivities, title, folder='rxnsensitivities-stdev', axis=[-1*STDEV*2, STDEV*2])
 
@@ -576,20 +587,89 @@ def sensPlotAnimateWorker(input):
 
     return [rxn, sens_types[s-2], MAX]
 
+### MULTIPROCESSING ###
+# num_threads = max_cpus
+# lump = int(len(reactions)*15/max_cpus)+1
+# input = list(itertools.product(reactions, sens_index))
+# pool = multiprocessing.Pool(processes=num_threads)
+# sum_sens = pool.map(sensPlotWorker, input, lump)
+# pool.close()
+# pool.join()
+#
+#
+# pool = multiprocessing.Pool(processes=num_threads)
+# max_sens = pool.map(sensPlotAnimateWorker, input, lump)
+# pool.close()
+# pool.join()
 
-num_threads = max_cpus
-lump = int(len(reactions)*15/max_cpus)+1
-input = list(itertools.product(reactions, sens_index))
-pool = multiprocessing.Pool(processes=num_threads)
-sum_sens = pool.map(sensPlotWorker, input, lump)
-pool.close()
-pool.join()
+### ONE AT A TIME ###
+input_data = list(itertools.product(reactions, sens_index))
+sum_sens = []
+
+for input in input_data:
+    rxn, s = input
+    tot_sens = 0.
+
+    for r in range(len(allrxndata[0])):  # for a single ratio
+        sensitivities = []
+        for f in range(len(array)):  # for lsr binding energies
+            got_value = False
+            for p in range(len(allrxndata[f][r])):  # matching the reaction
+                if allrxndata[f][r][p][1] == np.str(rxn):
+                    sensitivities.append(allrxndata[f][r][p][s+2])
+                    got_value = True
+            if got_value is False:
+                # this reaction didn't show up on this metal, so it isn't
+                # sensitive, so put a placeholder in
+                sensitivities.append(0.)
+
+        if len(sensitivities) != 81:
+            print("Skipping {} {} because sensitivity len is {} but should be 81".format(rxn, sens_index[s], len(sensitivities)))
+            continue
+        tot_sens += sum(abs(np.array(sensitivities)))
+        STDEV = statistics.stdev(sensitivities)
+        MAX = max(abs(np.array(sensitivities)))
+
+        title = str(rxn) + ' ' + sens_types[s-2] + ' ' + str(ratios[r])
+        sensPlot(sensitivities, title, folder='rxnsensitivities', axis=[-1*MAX, MAX])
+        sensPlot(sensitivities, title, folder='rxnsensitivities-stdev', axis=[-1*STDEV*2, STDEV*2])
+
+    sum_sens.append([rxn, tot_sens, sens_types[s]])
 
 
-pool = multiprocessing.Pool(processes=num_threads)
-max_sens = pool.map(sensPlotAnimateWorker, input, lump)
-pool.close()
-pool.join()
+max_sens = []
+for input in input_data:
+    rxn, s = input
+    print("{}".format(s))
+
+    sensitivities = []
+    for r in range(len(allrxndata[0])):  # for a single ratio
+        tmp_sens = []
+        for f in range(len(array)):  # for lsr binding energies
+            got_value = False
+            for p in range(len(allrxndata[f][r])):  # matching the reaction
+                if allrxndata[f][r][p][1] == np.str(rxn):
+                    tmp_sens.append(allrxndata[f][r][p][s+2])
+                    got_value = True
+            if got_value is False:
+                # this reaction didn't show up on this metal, so it isn't
+                # sensitive, so put a placeholder in
+                tmp_sens.append(0.)
+        if len(tmp_sens) != 81:
+            print("Skipping {} {} because sensitivity len is {} but should be 81".format(rxn, sens_index[s], len(tmp_sens)))
+            continue
+        else:
+            sensitivities.append(tmp_sens)
+    # standardizing the colors across all ratios
+    flat = [item for sublist in sensitivities for item in sublist]
+    MAX = max(abs(np.array(flat)))
+    STDEV = statistics.stdev(flat)
+    # AVG = (sum(abs(np.array(flat)))/len(flat))*1.5  # cutoff the color plot at x times the average sensitivity
+    title = str(rxn) + str(sens_types[s])
+    sensPlotAnimate(sensitivities, title, axis=[-1*MAX,MAX], folder='rxnsensitivities-animate')
+    sensPlotAnimate(sensitivities, title, axis=[-1*STDEV*2,STDEV*2], folder='rxnsensitivities-animate-stdev')
+
+    max_sens.append([rxn, sens_types[s-2], MAX])
 
 sorted_max_sens = sorted(max_sens, key=lambda l:l[2], reverse=True)
 for x in sorted_max_sens:
